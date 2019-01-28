@@ -1,0 +1,66 @@
+<nav class="navbar navbar-default navbar-fixed-top" id="rsmm-nav-1">
+    <div class="container">
+        {% include noscript.html %}    
+        <div class="navbar-header" id="rsmm-ime">
+            Računalniške storitve Miro Maher
+        </div>
+        {% include zastave.html %}    
+    </div>
+</nav>
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="rsmm-nav-2">
+    <div class="container">
+
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">
+                {% if page.nav == "index" %}
+                    <img alt="RSMM" src="/images/00_logotip_ORA.png" id="rsmm-meni-logo">
+                {% else %}
+                    <img alt="RSMM" src="/images/00_logotip.png" id="rsmm-meni-logo">
+                {% endif %}
+            </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="top-navbar">
+            <ul class="nav navbar-nav">
+
+                {% for node in site.data.navigation %}
+
+                    {% if node.title == page.nav %}
+                        {% assign active = 'active' %}
+                    {% else %}
+                        {% assign active = '' %}
+                    {% endif %}
+                
+                    {% if node.subcategories != null %}
+                        <li class="dropdown {{ active }}">
+                            <a href="{{ site.url }}{{ node.href }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                {{ node.title }} <span class="caret"></span></a>
+
+                            <ul class="dropdown-menu">
+                                {% for subcategory in node.subcategories %}
+                                <li><a href="{{ site.url }}{{ subcategory.subhref }}">{{ subcategory.subtitle }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+
+                    {% else %}
+                        <li class="{{ active }}">
+                            <a href="{{ site.url }}{{ node.href }}">{{ node.title }}</a>
+                        </li>
+
+                    {% endif %}
+
+                {% endfor %}
+
+            </ul>
+        </div>
+    </div>
+</nav>

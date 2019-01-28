@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html class="no-js" lang="{{ page.language }}">    
+    <head>
+        {% include head.html %}    
+        {% include google_analytics.html %}
+    </head>
+    <body>
+        {% if page.language == 'si' %}
+            {% include nav_si.html %}
+        {% elsif page.language %}
+            {% include nav_lang.html %}
+        {% else %}
+            {% include navigation.html %}
+        {% endif %}        
+
+        {{ content }}
+
+        {% include footer.html %}            
+        {% include cookieconsent.html %}
+    </body>
+</html>
+

@@ -1,0 +1,19 @@
+- title: "ABOUT"
+  href: "/en/about.html"
+  nav: "en_about"
+  
+- title: "APPARTMENTS"
+  href: "/en/appartments.html"
+  nav: "en_appartments"
+  
+- title: "LOCATION"
+  href: "/en/location.html"
+  nav: "en_location"
+  
+- title: "GALLERY"
+  href: "/en/gallery.html"
+  nav: "en_gallery"
+  
+- title: "RESERVATION and CONTACT"
+  href: "/en/reservation.html"
+  nav: "en_reservation"  

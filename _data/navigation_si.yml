@@ -1,0 +1,19 @@
+- title: "O NAS"
+  href: "/si/about.html"
+  nav: "si_about"
+
+- title: "APARTMAJI"
+  href: "/si/appartments.html"
+  nav: "si_appartments"
+  
+- title: "LOKACIJA"
+  href: "/si/location.html"
+  nav: "si_location"
+  
+- title: "GALERIJA"
+  href: "/si/gallery.html"
+  nav: "si_gallery"
+  
+- title: "REZERVACIJA in KONTAKT"
+  href: "/si/reservation.html"
+  nav: "si_reservation"

@@ -1,0 +1,367 @@
+---
+---
+
+/* load fonts */
+@font-face {
+//    font-family: 'DejaVuSansBook';
+    font-family: 'DejaVuSans';
+    src: url('/fonts/dejavusans-webfont.woff') format('woff'),
+        url('/fonts/dejavusans-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+//    font-family: 'DejaVuSansBold';
+    font-family: 'DejaVuSans';
+    src: url('/fonts/dejavusans-bold-webfont.woff') format('woff'),
+        url('/fonts/dejavusans-bold-webfont.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+//    font-family: 'DejaVuSansOblique';
+    font-family: 'DejaVuSans';
+    src: url('/fonts/dejavusans-oblique-webfont.woff') format('woff'),
+        url('/fonts/dejavusans-oblique-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: oblique;
+}
+
+@font-face {
+//    font-family: 'DejaVuSansMonoBook';
+    font-family: 'DejaVuSansMono';
+    src: url('/fonts/dejavusansmono-webfont.woff') format('woff'),
+        url('/fonts/dejavusansmono-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+//    font-family: 'DejaVuSansMonoBold';
+    font-family: 'DejaVuSansMono';
+    src: url('/fonts/dejavusansmono-bold-webfont.woff') format('woff'),
+        url('/fonts/dejavusansmono-bold-webfont.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+// headers and footers
+$rsmm-nav1-height: 40px;
+$rsmm-nav2-height: 60px;
+$rsmm-footer-height: 90px;
+
+@import 'rsmmVariables';
+@import 'bootstrap';
+@import 'index';
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+// nekaj splosnih
+body {
+    margin-bottom: $rsmm-footer-height;
+    padding-top: 150px;
+
+    a {
+        &:hover {
+            color: $ORANZNA;
+        }
+    }
+    
+    hr {
+        border-top-color: $SVETLO-MODRA;
+        border-top-width: 2px;        
+    }
+    
+    #rsmm-nav-2 {
+        li.active>a {
+            font-weight: bold;
+        }
+    }
+    
+    // tega najbrz ne rabim
+    .rsmm-hide-h1 {
+        display: none;
+    }
+    
+    img {
+        margin-bottom: 10px;
+    }
+    
+}
+
+// 
+#about-click-more {
+    &:hover {
+        color: $ORANZNA;
+        cursor: pointer;
+    }
+}
+
+
+// naslov (levo v storitvah, referencah ...)
+.storitve-naslov,
+.tehnologija-naslov,
+.reference-naslov {
+    h1, p {
+        text-align: center;
+        color: $ORANZNA;
+        font-family: $font-family-monospace;
+        font-size: $font-size-large;
+        line-height: 26px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    img {
+        max-height: 120px;
+        width: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.tehnologija-naslov {
+    img {
+        margin-bottom: 20px;
+    }
+}
+
+
+// predstavitev in uradno
+.rsmm-predstavitev {
+    h1 {
+        text-align: center;
+        color: $ORANZNA;
+        font-family: $font-family-monospace;
+        font-size: $font-size-large;
+        line-height: 26px;
+        margin-bottom: 20px;
+    }
+
+    p {
+        margin-bottom: 20px;
+    }
+    
+    img {
+        margin-bottom: 20px;
+    }
+}
+
+// kontakt
+.rsmm-large {
+    font-size: $font-size-large;
+}
+.rsmm-qr {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+// cenik
+.rsmm-cenik {
+    
+    @media (max-width: $screen-sm-min) { 
+        table {
+            width: 640px;
+        }
+    }
+    
+    h1 {
+        color: $ORANZNA;
+        font-family: $font-family-monospace;
+        font-size: $font-size-large;
+        line-height: 26px;
+        padding-left: 8px;
+        margin-top: 0;
+    }
+    .rsmm-cenik-velja {
+        margin-bottom: 30px;
+    }
+    .rsmm-cenik-pdf {
+        padding-right: 20px;        
+    }
+    .rsmm-cenik-mednaslov {
+        font-size: $font-size-large;
+    }
+    p {
+        padding-left: 8px;
+    }
+    .tr-underline {
+        border-bottom: 2px solid $TEMNO-MODRA;
+    }
+    .tr-bela {
+        td {
+            background-color: $BELA;
+        }
+    }
+    th + th,
+    td + td {
+        text-align: right;
+    }
+    .col-ena {
+        width: 64%;
+    }
+    .col-naprej {
+        width: 12%;        
+    }
+}
+
+// reference
+.rsmm-reference {    
+    blockquote {
+        text-align: justify;
+        margin-bottom: 50px;
+
+        footer {
+            font-style: normal;
+            font-size: $font-size-small;
+            padding-left: 20px;
+        }
+        footer::before {
+            content: none;
+        }
+    }
+}
+
+// ostalo
+.rsmm-novice {
+    text-align: justify;
+        
+    h1 {
+        text-align: center;
+        color: $ORANZNA;
+        font-family: $font-family-monospace;
+        font-size: $font-size-large;
+        margin-top: 20px;
+        margin-bottom: 50px;
+    }
+
+    #rsmm-novice-icon {
+        width: 100%;
+        height: 80px;
+
+        img {
+            height: 80px;
+            width: auto;
+        }
+
+        #rsmm-novice-image {
+            height: 80px;
+            width: auto;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            position: relative;
+            top: -80px; 
+            &:hover {
+                opacity: 0.0;
+            }
+        }
+    }
+    
+    .novice-seznam {
+        text-align: left;
+        color: $ORANZNA;
+        margin-bottom: 50px;
+        a {
+            color: $TEMNO-MODRA;
+            &:hover {
+                color: $ORANZNA;
+            }
+        }
+    }
+
+    .home-novica {
+        margin-bottom: 40px;
+        a {
+            color: $link-color;
+            &:hover {
+                color: $ORANZNA;
+            }
+        }
+    }
+
+    img {
+        width: 100%;
+        max-width: 360px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .novice-title, h2 {
+        color: $TEMNO-MODRA;
+        font-family: $font-family-monospace;
+        font-style: bold;
+        font-size: $font-size-large;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        margin-top: 0;
+    }
+}
+    
+
+
+// tuji jeziki
+.rsmm-language {
+    img {
+//        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    #img-lang-logo {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 150px;
+    }
+    #img-lang-emonko {
+        max-height: 500px;
+    }
+}
+
+#rsmm-lang-header {
+    line-height: $rsmm-nav2-height;
+
+    #rsmm-lang-naslov {
+        color: $ORANZNA;
+        font-weight: bold;
+        vertical-align: middle;
+    }
+    #rsmm-lang-slo {
+        vertical-align: middle;
+        padding: 0 15px;
+        a {
+            display: block;
+            color: $BELA;
+        }
+        &:hover {
+            background-color: $ORANZNA;
+        }
+    }
+}
+
+// social
+@import 'jssocials';
+@import 'jssocials-theme-plain';
+#social-share  { 
+    position: relative;
+    top: -20px;
+    margin-bottom: -20px;
+    .jssocials-share-link { 
+        border: 0; 
+        padding-left: 5px;
+        padding-right: 5px;
+        font-size: 14px;
+    }    
+    .jssocials-share-email {
+        .jssocials-share-link {
+            padding-right: 0;
+        }
+    }
+}
+
