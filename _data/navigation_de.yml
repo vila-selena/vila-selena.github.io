@@ -1,19 +1,24 @@
-- title: "UEBER UNS"
+- title: "Vila Selena"
+  href: "/de/"
+  nav: "de_index"
+  brand: "true"
+
+- title: "Ueber uns"
   href: "/de/about.html"
   nav: "de_about"
 
-- title: "APPARTEMENT"
-  href: "/de/appartments.html"
-  nav: "de_appartments"
+- title: "Appartment"
+  href: "/de/apartments.html"
+  nav: "de_apartments"
   
-- title: "LAGE"
+- title: "Lage"
   href: "/de/location.html"
   nav: "de_location"
   
-- title: "GALERIE"
+- title: "Galerie"
   href: "/de/gallery.html"
   nav: "de_gallery"
   
-- title: "RESERVIERUNG und KONTAKT"
+- title: "Reservierung"
   href: "/de/reservation.html"
   nav: "de_reservation"

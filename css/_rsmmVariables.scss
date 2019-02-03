@@ -1,24 +1,17 @@
+// VilaSelena Colors
+// barva temno zelena (zgoraj napisi): 
+$TEMNOZELENA:                   #004F46;
+// barva temno rdeca (poudarki, izbrano): 
+$TEMNORDECA:                    #783226;
+// barva zlata header:
+$ZLATA:                         #C5A46D;
 
-// RSMM Colors
-$TEMNO-MODRA:                   #2C4B80;
-$SVETLO-MODRA:                  #BCDEF6;
-$ORANZNA:                       #E84A1D;
-$JAJCNO-BELA:                   #F1F7EE;
 $BELA:                          #FFF;
 $CRNA:                          #000;
 $RDECA:                         #C00;
 $RUMENA:                        #FF0;
 
-
-// $gray-base:                     $TEMNO-MODRA !default;
-// $gray-darker:                   darken($TEMNO-MODRA, 10%) !default;
-// $gray-dark:                     lighten($TEMNO-MODRA, 0%) !default;
-// $gray:                          lighten($TEMNO-MODRA, 10%) !default;
-// $gray-light:                    lighten($SVETLO-MODRA, 0%) !default;
-// $gray-lighter:                  lighten($SVETLO-MODRA, 10%) !default;
-
-$brand-primary:                 $ORANZNA !default;
-
+$brand-primary:                 $TEMNOZELENA !default;
 $brand-success:                 #5cb85c !default;
 $brand-info:                    #5bc0de !default;
 $brand-warning:                 #f0ad4e !default;
@@ -26,47 +19,46 @@ $brand-danger:                  #d9534f !default;
 
 //** Background color for `<body>`.
 $body-bg:                       $BELA !default;
-
 //** Global text color on `<body>`.
 $text-color:                    $CRNA !default;
 //** Blockquote 
 $blockquote-small-color:        $CRNA !default;
 
 //** Global textual link color.
-$link-color:                    lighten($TEMNO-MODRA, 10%) !default;
+$link-color:                    $TEMNOZELENA !default;
 $link-hover-decoration:         none !default;
 
-$table-bg-hover:                $SVETLO-MODRA !default;
-$table-bg-accent:               lighten($SVETLO-MODRA, 10%) !default;
+$table-bg-hover:                $TEMNOZELENA !default;
+$table-bg-accent:               lighten($TEMNOZELENA, 10%) !default;
 $table-border-color:            $BELA !default;
 
 //== Typography
-$font-family-sans-serif:        DejaVuSans, "Helvetica Neue", Helvetica, Arial, sans-serif !default;
-$font-family-serif:             Georgia, "Times New Roman", Times, serif !default;
-$font-family-monospace:         DejaVuSansMono, Menlo, Monaco, Consolas, "Courier New", monospace !default;
+$font-family-sans-serif:        Palanquin, "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$font-family-serif:             Arsenal, "Times New Roman", Times, serif !default;
+$font-family-monospace:         Menlo, Monaco, Consolas, "Courier New", monospace !default;
 $font-family-base:              $font-family-sans-serif !default;
 
 $headings-font-family:          $font-family-monospace !default;
-$headings-color:                $TEMNO-MODRA !default;
-$headings-small-color:          $TEMNO-MODRA !default;
+$headings-color:                $TEMNOZELENA !default;
+$headings-small-color:          $TEMNOZELENA !default;
 
-$font-size-base:                14px !default;
+$font-size-base:                16px !default;
 $font-size-large:               ceil(($font-size-base * 1.25)) !default; // ~18px
 $font-size-small:               ceil(($font-size-base * 0.85)) !default; // ~12px
 
 // Basics of a navbar
 $navbar-height:                             $rsmm-nav2-height !default;
-$navbar-default-color:                      $BELA !default;
-$navbar-default-bg:                         $TEMNO-MODRA !default;
+$navbar-default-color:                      $TEMNOZELENA !default;
+$navbar-default-bg:                         $BELA !default;
 
 // Navbar links
-$navbar-default-link-color:                 $BELA !default;
+$navbar-default-link-color:                 $TEMNOZELENA !default;
 $navbar-default-link-hover-color:           $BELA !default;
-$navbar-default-link-hover-bg:              $ORANZNA  !default;
-$navbar-default-link-active-color:          $ORANZNA  !default;
-$navbar-default-link-active-bg:             $TEMNO-MODRA !default;
+$navbar-default-link-hover-bg:              $TEMNORDECA  !default;
+$navbar-default-link-active-color:          $TEMNORDECA  !default;
+$navbar-default-link-active-bg:             $BELA !default;
 
-$navbar-default-link-disabled-color:        $TEMNO-MODRA !default;
+$navbar-default-link-disabled-color:        $BELA !default;
 $navbar-default-link-disabled-bg:           transparent !default;
 
 // Navbar brand label
@@ -83,6 +75,6 @@ $dropdown-link-active-color:                $navbar-default-link-active-color !d
 $dropdown-link-active-bg:                   $navbar-default-link-active-bg !default;
 
 // Blockquote
-$blockquote-small-color:      $SVETLO-MODRA !default;
-$blockquote-border-color:     $SVETLO-MODRA !default;
-$blockquote-font-size:        $font-size-base !default;
+$blockquote-small-color:                    $TEMNOZELENA !default;
+$blockquote-border-color:                   $TEMNOZELENA !default;
+$blockquote-font-size:                      $font-size-base !default;

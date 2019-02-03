@@ -1,0 +1,25 @@
+.selected img {
+    opacity:0.3;
+}
+
+div#slider-thumbs ul {
+    height:100px; 
+    white-space:nowrap; 
+    overflow-y:hidden; 
+    overflow-x:auto; 
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+}
+
+div#slider-thumbs img {
+    height: 80px; 
+    width: auto;
+}
+
+div#rsmm-gallery-carousel > img {
+    margin: 20px 0;
+}
+
+ul.list-inline {
+    margin-top: 10px;
+}

@@ -1,63 +1,98 @@
 // header nad menijem
 #rsmm-nav-1 {
-    color: $TEMNO-MODRA;
-    background-color: $SVETLO-MODRA;
+    background-color: $ZLATA;
     border: 0;
     border-radius: 0;
     height: $rsmm-nav1-height;
-
-    #rsmm-ime {
-        padding: 2px 10px;
-        font-size: 30px;
-        font-weight: bold;
-        text-shadow: 9px -3px 3px $ORANZNA;
-        transform: skewX(-30deg);
-    }
-
+    min-height: $rsmm-nav1-height;
+    
     #rsmm-noscript {
         font-weight: bold;
         background-color: $RUMENA;
         color: $RDECA;
         padding: 10px 10px;
     }
-
-}
-@media (max-width: $screen-sm-min) { 
-    #rsmm-nav-1 {
-        height: 2 * $rsmm-nav1-height;
+    .rsmm-nav-1-text {
+        color: $BELA;
+        font-family: $font-family-serif;
+        font-size: 18px;
+        font-weight: bold;
+        margin: 15px 6px;
+        
+        a {
+            color: inherit;
+            &:focus {
+                background-color: inherit;
+            }
+        }
     }
-}    
 
-// zgornji meni
+    // zastave
+    $zastave-height: 25px;
+    
+    #rsmm-zastave {
+        .rsmm-zastave-icon {
+            float: left;
+            height: $zastave-height;
+            line-height: $zastave-height;
+            text-align: center;
+        }
+
+        span {
+            max-width: 24px;
+            display: inline-block;
+            vertical-align: middle;
+            line-height: normal;      
+        }
+
+        .rsmm-zastave-image {
+            height: $zastave-height;
+            width: auto;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            position: relative;
+            top: -$zastave-height+4px; // popravi+- za vertikalno lego zastavic
+            &:hover {
+                opacity: 0.0;
+            }
+        }
+
+        img {
+            height: 18px;
+            width: auto;
+        }
+    }
+}
+
+// meni
 #rsmm-nav-2 {
     top: $rsmm-nav1-height;
-    font-family: $font-family-monospace;
     border: 0;
     border-radius: 0;
-
-    button {
-        margin-left: 15px;
-    }
+    height: $rsmm-nav2-height;
+    min-height: $rsmm-nav2-height;
     
+    font-family: $font-family-serif;
+    font-size: 20px;
+    font-weight: bold;
+
+    .brand {
+        font-size: 24px;
+        a {
+            padding-top: 27px;
+        }
+    }
+
     .dropdown-menu {
         border: 0;
     }
     
-    #rsmm-meni-logo {
-        height: 52px;    
-    }
-    .navbar-brand {
-        padding-top:    4px;
-        padding-bottom: 4px;
-        padding-left:   18px;
-        padding-right:  12px;
+    li a {
+        padding-left: 10px;
+        padding-right: 10px;
     }
 }
-@media (max-width: $screen-sm-min) { 
-    #rsmm-nav-2 {
-        top: 2 * $rsmm-nav1-height;
-    }
-}    
 
 // footer
 #rsmm-footer {
@@ -65,12 +100,16 @@
     width: 100%;
     bottom: 0;
     height: $rsmm-footer-height;
+    min-height: $rsmm-footer-height;
     
     color: $BELA;
+    background-color: $ZLATA;
     font-size: $font-size-small;
+    font-weight: bold;
     border: 0;
     border-radius: 0;
     margin: 20px 0px 0px 0px;
+    padding-top: 6px;
 
     a {
         color: inherit;
@@ -78,219 +117,62 @@
             background-color: inherit;
         }
     }
-    
-    @media (max-width: 560px) { 
-    .foot-hide {
-        display: none;
-    }
 }
 
+// required body top and bottom margins for header and footer
+html {
+    position: relative;
+    min-height: 100%;
 }
+body {
+    padding-top: $rsmm-nav1-height + $rsmm-nav2-height + 20px;
+    margin-bottom: $rsmm-footer-height + 20px;
+}    
 
-// banner z ikonami storitev (index.html in storitve)
-#rsmm-storitve-banner {
-    margin-top: 30px;
-    margin-bottom: 30px;
-    
-    #rsmm-storitve-left,
-    #rsmm-storitve-right {
-        margin-left: -2px;
-        margin-right: -2px;
-    }
+// changes for phone screen
+@media (max-width: $screen-sm-min) { 
+    #rsmm-nav-1 {
+        height: 2 * $rsmm-nav1-height;
         
-    @media (min-width: $screen-sm-min) { 
-        #rsmm-storitve-left {
-            padding-right: 0px;
-        }
-        #rsmm-storitve-right {
-            padding-left: 0px;
+        .rsmm-nav-1-text {
+            margin: 3px 6px;
         }
     }
     
-    .rsmm-storitve-icon {
-        float: left;
-        background-color: $SVETLO-MODRA;
-        width: 25%;
-        height: 80px;
-        line-height: 80px;
-        text-align: center;
-    }
-
-    span {
-        font-family: $font-family-monospace;
-        color: $ORANZNA;
-        max-width: 90px;
-        display: inline-block;
-        vertical-align: middle;
-        line-height: normal;      
-    }
-    
-    .rsmm-storitve-image {
-        background-color: $SVETLO-MODRA;
-        height: 80px;
-        width: auto;
-        margin-left: auto;
-        margin-right: auto;
-        display: block;
-        position: relative;
-        top: -80px; 
-        &:hover {
-            opacity: 0.0;
-        }
-    }
-
-    img {
-        height: 60px;
-        width: auto;
-    }
-}
-
-// banner z ikonami tehnologije (index.html in tehnologija)
-#rsmm-tehnologija-banner {
-    margin-top: 30px;
-    margin-bottom: 30px;
-    
-    #rsmm-tehnologija-left,
-    #rsmm-tehnologija-right {
-        margin-left: -2px;
-        margin-right: -2px;
-    }
+    #rsmm-nav-2 {
+        top: 2 * $rsmm-nav1-height;
+        height: $rsmm-nav2-height - 30px;
+        min-height: $rsmm-nav2-height - 30px;
         
-    @media (min-width: $screen-sm-min) { 
-        #rsmm-tehnologija-left {
-            padding-right: 0px;
+        .navbar-toggle {
+            margin-top: 8px;
+            margin-bottom: 8px;
         }
-        #rsmm-tehnologija-right {
-            padding-left: 0px;
-        }
-    }
-    
-    .rsmm-tehnologija-icon {
-        float: left;
-//        background-color: $SVETLO-MODRA;
-//        width: 25%;
-//        height: 80px;
-//        line-height: 80px;
-        width: 33%;
-        height: 30px;
-        line-height: 30px;
-        text-align: center;
-    }
-
-    span {
-        font-family: $font-family-monospace;
-        color: $ORANZNA;
-        max-width: 90px;
-        display: inline-block;
-        vertical-align: middle;
-        line-height: normal;      
-    }
-    
-    .rsmm-tehnologija-image {
-//        background-color: $SVETLO-MODRA;
-//        height: 80px;
-        background-color: $body-bg;
-        height: 30px;
-        width: auto;
-        margin-left: auto;
-        margin-right: auto;
-        display: block;
-        position: relative;
-//        top: -80px; 
-        top: -30px; 
-        &:hover {
-            opacity: 0.0;
-        }
-    }
-
-    img {
-        height: 30px;
-        width: auto;
-    }
-}
-
-// zastave
-#rsmm-zastave {
-
-    .rsmm-zastave-icon {
-        margin-left: 6px;
-        float: right;
-        height: 40px;
-        line-height: 40px;
-        text-align: center;
-    }
-
-    span {
-        font-family: $font-family-monospace;
-        color: $ORANZNA;
-        max-width: 24px;
-        display: inline-block;
-        vertical-align: middle;
-        line-height: normal;      
-    }
-    
-    .rsmm-zastave-image {
-        height: 40px;
-        width: auto;
-        margin-left: auto;
-        margin-right: auto;
-        display: block;
-        position: relative;
-        top: -40px; 
-        &:hover {
-            opacity: 0.0;
-        }
-    }
-
-    img {
-        height: 16px;
-        width: auto;
-    }
-}
-
-// pisite nam
-#rsmm-pismo-row {
-    margin-top: 30px;
-    margin-bottom: 30px;
-
-    #rsmm-pismo {
-        z-index: 10;
-    }
         
-    .rsmm-pismo-icon {
-        margin-bottom: 30px;
-        float: left;
-        width: 100%;
-        height: 120px;
-        line-height: 120px;
-        text-align: center;
-    }
-
-    span {
-        font-family: $font-family-monospace;
-        font-size: $font-size-large;
-        color: $ORANZNA;
-        max-width: 120px;
-        display: inline-block;
-        vertical-align: middle;
-        line-height: normal;      
-    }
-    
-    .rsmm-pismo-image {
-        height: 120px;
-        width: auto;
-        margin-left: auto;
-        margin-right: auto;
-        display: block;
-        position: relative;
-        top: -120px; 
-        &:hover {
-            opacity: 0.0;
+        a {
+            background-color: $BELA;
+            &:hover {
+                background-color: $TEMNORDECA;
+            }
+        }
+        
+        .active {
+            a:hover {
+                background-color: $BELA;
+            }
         }
     }
-
-    img {
-        height: 100px;
-        width: auto;
+    
+    #rsmm-footer {
+        height: 2 * $rsmm-footer-height;
+    }
+    
+    body {
+        padding-top: 2 * $rsmm-nav1-height + $rsmm-nav2-height + 20px - 30px;
+        margin-bottom: 2 * $rsmm-footer-height + 20px;
+    }
+    
+    .navbar {
+        padding-left: 15px;
     }
 }

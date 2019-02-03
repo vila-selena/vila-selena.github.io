@@ -1,19 +1,24 @@
-- title: "O NAS"
+- title: "Vila Selena"
+  href: "/si/"
+  nav: "si_index"
+  brand: "true"
+
+- title: "O nas"
   href: "/si/about.html"
   nav: "si_about"
 
-- title: "APARTMAJI"
-  href: "/si/appartments.html"
-  nav: "si_appartments"
+- title: "Apartmaji"
+  href: "/si/apartments.html"
+  nav: "si_apartments"
   
-- title: "LOKACIJA"
+- title: "Lokacija"
   href: "/si/location.html"
   nav: "si_location"
   
-- title: "GALERIJA"
+- title: "Galerija"
   href: "/si/gallery.html"
   nav: "si_gallery"
   
-- title: "REZERVACIJA in KONTAKT"
+- title: "Rezervacija"
   href: "/si/reservation.html"
   nav: "si_reservation"
