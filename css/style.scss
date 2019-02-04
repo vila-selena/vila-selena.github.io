@@ -10,16 +10,24 @@
 }
 
 @font-face {
-    font-family: 'Arsenal';
+    font-family: 'ArsenalBold';
     src: url('/fonts/arsenal-bold.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'ArsenalBoldItalic';
+    src: url('/fonts/arsenal-bolditalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
 // header and footer sizes
 $rsmm-nav1-height: 60px;
-$rsmm-nav2-height: 80px;
+$rsmm-nav2-height: 40px;
 $rsmm-footer-height: 60px;
+$rsmm-nav-margin: 20px;
 
 @import 'rsmmVariables';
 @import 'bootstrap';
@@ -27,14 +35,15 @@ $rsmm-footer-height: 60px;
 
 // custom settings
 body {
-    h1, h2, hr, h4, h5, h6 {
-        color: $TEMNORDECA;
+    h1, h2, h3, h4, h5, h6 {
+        color: $ZLATA;
+        text-align: center;
     }
-    
+
     a {
-        color: $TEMNOZELENA;        
+        color: $TEMNOZLATA;        
         &:hover {
-            color: $TEMNORDECA;
+            color: $ZLATA;
         }
     }
 
@@ -50,7 +59,7 @@ body {
     
     .rsmm-color-carousel-caption {
         color: $BELA;
-        font-family: $font-family-sans-serif;
+        font-family: Palanquin;
     }
 } // body
 
@@ -64,6 +73,9 @@ body {
 //    position: relative;
 //    top: -20px;
 //    margin-bottom: -20px;
+    i {
+        color: $BELA;
+    }
     .jssocials-share-link { 
         border: 0; 
         padding-left: 5px;

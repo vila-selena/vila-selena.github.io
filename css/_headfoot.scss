@@ -1,11 +1,15 @@
 // header nad menijem
 #rsmm-nav-1 {
+    color: $BELA;
     background-color: $ZLATA;
+
     border: 0;
     border-radius: 0;
     height: $rsmm-nav1-height;
     min-height: $rsmm-nav1-height;
-    
+
+    font-family: Palanquin;
+
     #rsmm-noscript {
         font-weight: bold;
         background-color: $RUMENA;
@@ -14,8 +18,8 @@
     }
     .rsmm-nav-1-text {
         color: $BELA;
-        font-family: $font-family-serif;
-        font-size: 18px;
+//        font-family: $font-family-serif;
+        font-size: 16px;
         font-weight: bold;
         margin: 15px 6px;
         
@@ -65,56 +69,95 @@
     }
 }
 
+#rsmm-nav-margin-1 {
+    background-color: $BELA;
+    top: $rsmm-nav1-height;
+    border: 0;
+    border-radius: 0;
+    height: $rsmm-nav-margin;
+    min-height: $rsmm-nav-margin;
+}
+
 // meni
 #rsmm-nav-2 {
-    top: $rsmm-nav1-height;
+    color: $ZLATA;
+    background-color: $BELA;
+
+    top: $rsmm-nav1-height + $rsmm-nav-margin;
     border: 0;
     border-radius: 0;
     height: $rsmm-nav2-height;
     min-height: $rsmm-nav2-height;
     
-    font-family: $font-family-serif;
-    font-size: 20px;
+    font-family: ArsenalBold;
+    font-size: 18px;
     font-weight: bold;
-
-    .brand {
-        font-size: 24px;
-        a {
-            padding-top: 27px;
-        }
-    }
+    text-transform: uppercase;
 
     .dropdown-menu {
         border: 0;
     }
     
     li a {
+        border-right-color: $ZLATA;
+        border-right-width: 1px;
+        border-right-style: solid;
         padding-left: 10px;
         padding-right: 10px;
     }
+    
+    li.brand {
+        font-size: 24px;
+        a {
+            border-left-color: $ZLATA;
+            border-left-width: 1px;
+            border-left-style: solid;
+            padding-top: 9px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+    }
+}
+
+// margin below menu
+#rsmm-nav-margin-2 {
+    background-color: $BELA;
+    top: $rsmm-nav1-height + $rsmm-nav-margin + $rsmm-nav2-height;
+    border: 0;
+    border-radius: 0;
+    height: $rsmm-nav-margin;
+    min-height: $rsmm-nav-margin;
 }
 
 // footer
 #rsmm-footer {
+    color: $BELA;
+    background-color: $ZLATA;
+    
     position: absolute;
     width: 100%;
     bottom: 0;
     height: $rsmm-footer-height;
     min-height: $rsmm-footer-height;
     
-    color: $BELA;
-    background-color: $ZLATA;
-    font-size: $font-size-small;
-    font-weight: bold;
     border: 0;
     border-radius: 0;
     margin: 20px 0px 0px 0px;
     padding-top: 6px;
 
-    a {
-        color: inherit;
-        &:focus {
-            background-color: inherit;
+    font-family: Palanquin;
+    
+    .rsmm-foot-text {
+        color: $BELA;
+//        font-family: $font-family-serif;
+        font-size: 16px;
+        font-weight: bold;
+        margin: 15px 6px;
+        a {
+            color: inherit;
+            &:focus {
+                background-color: inherit;
+            }
         }
     }
 }
@@ -125,14 +168,14 @@ html {
     min-height: 100%;
 }
 body {
-    padding-top: $rsmm-nav1-height + $rsmm-nav2-height + 20px;
-    margin-bottom: $rsmm-footer-height + 20px;
+    padding-top: $rsmm-nav1-height + $rsmm-nav-margin + $rsmm-nav2-height + $rsmm-nav-margin;
+    margin-bottom: $rsmm-footer-height + $rsmm-nav-margin;
 }    
 
 // changes for phone screen
 @media (max-width: $screen-sm-min) { 
     #rsmm-nav-1 {
-        height: 2 * $rsmm-nav1-height;
+        height: $rsmm-nav1-height + 20px;
         
         .rsmm-nav-1-text {
             margin: 3px 6px;
@@ -140,7 +183,7 @@ body {
     }
     
     #rsmm-nav-2 {
-        top: 2 * $rsmm-nav1-height;
+        top: $rsmm-nav1-height + 20px;
         height: $rsmm-nav2-height - 30px;
         min-height: $rsmm-nav2-height - 30px;
         
@@ -168,7 +211,7 @@ body {
     }
     
     body {
-        padding-top: 2 * $rsmm-nav1-height + $rsmm-nav2-height + 20px - 30px;
+        padding-top: $rsmm-nav1-height + 20px + $rsmm-nav2-height + 20px;
         margin-bottom: 2 * $rsmm-footer-height + 20px;
     }
     

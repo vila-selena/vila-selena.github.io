@@ -1,15 +1,18 @@
 <nav class="navbar navbar-default" id="rsmm-footer">
     <div class="container">
-        <div class="row">
-            <div class="col-sm-6 small">
-                <span>Vila Selena</span><br>
-                <span>info@vila-selena.si</span><br>
-                <span>041 123 123</span><br>
-            </div>
-            <div class="col-sm-6 small">
-                <span class="pull-right" id="social-share"></span>
-            </div>
-        </div>
+        <div class="navbar-header">
+            <p class="navbar-text rsmm-foot-text">
+                <span class="glyphicon glyphicon-earphone"></span>
+                <a href="+386 1 123 123">+386 1 123 123</a>
+                &nbsp;&nbsp;
+                <span class="glyphicon glyphicon-envelope"></span>
+                <a href="#">info@vila-selena.si</a>
+            </p>
+        </div>        
+
+        <div class="navbar-header navbar-right">
+                <span id="social-share"></span>
+        </div>        
     </div>
 </nav>
 
@@ -17,11 +20,3 @@
 <script src="/js/bootstrap.js"></script>
 <script src="/js/main.js"></script>
 <script src="/js/jssocials.min.js"></script>
-<script>
-    $("#social-share").jsSocials({
-        showLabel: false,
-        showCount: false,
-        shares: ["twitter", "facebook", "googleplus", "linkedin", "pinterest", "stumbleupon", "email"]
-    });
-</script>
-

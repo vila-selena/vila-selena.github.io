@@ -1,6 +1,6 @@
-
 $(document).ready(function(){
 
+/*
     // handles the carousel thumbnails
     $('[id^=carousel-selector-]').click( function(){
         var id_selector = $(this).attr("id");
@@ -17,6 +17,13 @@ $(document).ready(function(){
         id = parseInt(id);
         $('[id^=carousel-selector-]').removeClass('selected');
         $('[id=carousel-selector-'+id+']').addClass('selected');
+    });
+*/
+
+    $("#social-share").jsSocials({
+        showLabel: false,
+        showCount: false,
+        shares: ["twitter", "facebook", "googleplus", "linkedin", "pinterest", "stumbleupon"]
     });
 
 });
