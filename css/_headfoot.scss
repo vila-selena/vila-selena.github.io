@@ -98,12 +98,14 @@
         border: 0;
     }
     
-    li a {
-        border-right-color: $ZLATA;
-        border-right-width: 1px;
-        border-right-style: solid;
-        padding-left: 10px;
-        padding-right: 10px;
+    li {
+        a {
+            border-right-color: $ZLATA;
+            border-right-width: 1px;
+            border-right-style: solid;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
     }
     
     li.brand {
@@ -149,7 +151,6 @@
     
     .rsmm-foot-text {
         color: $BELA;
-//        font-family: $font-family-serif;
         font-size: 16px;
         font-weight: bold;
         margin: 15px 6px;
@@ -174,47 +175,71 @@ body {
 
 // changes for phone screen
 @media (max-width: $screen-sm-min) { 
+    #rsmm-nav-margin-1, #rsmm-nav-margin-2 {
+        top: 0;
+        height: 0;
+        min-height: 0;
+        margin: 0;
+    }
+    
     #rsmm-nav-1 {
-        height: $rsmm-nav1-height + 20px;
+        height: $rsmm-nav1-height-xs;
         
         .rsmm-nav-1-text {
             margin: 3px 6px;
         }
     }
-    
+
     #rsmm-nav-2 {
-        top: $rsmm-nav1-height + 20px;
-        height: $rsmm-nav2-height - 30px;
-        min-height: $rsmm-nav2-height - 30px;
+        top: $rsmm-nav1-height-xs;
+        height: $rsmm-nav2-height-xs;
+        min-height: $rsmm-nav2-height-xs;
         
         .navbar-toggle {
             margin-top: 8px;
             margin-bottom: 8px;
         }
         
+        button.navbar-toggle {
+            background-color: $ZLATA;
+        }
+        
         a {
             background-color: $BELA;
             &:hover {
-                background-color: $TEMNORDECA;
+                color: $ZLATA;
             }
         }
         
-        .active {
-            a:hover {
-                background-color: $BELA;
+        div.navbar-collapse {
+            ul {
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+        }
+
+        li, li.brand {
+            a {
+                border: none;
+                padding-left: 10px;
             }
         }
     }
-    
+
     #rsmm-footer {
-        height: 2 * $rsmm-footer-height;
+        height: $rsmm-footer-height-xs;
+        
+        .rsmm-foot-text {
+            margin-top: 6px;
+            margin-bottom: 6px;
+        }
     }
     
     body {
-        padding-top: $rsmm-nav1-height + 20px + $rsmm-nav2-height + 20px;
-        margin-bottom: 2 * $rsmm-footer-height + 20px;
+        padding-top: $rsmm-nav1-height-xs + $rsmm-nav2-height-xs + $rsmm-nav-margin;
+        margin-bottom: $rsmm-footer-height-xs + $rsmm-nav-margin;
     }
-    
+        
     .navbar {
         padding-left: 15px;
     }

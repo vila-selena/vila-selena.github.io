@@ -24,10 +24,13 @@
 }
 
 // header and footer sizes
-$rsmm-nav1-height: 60px;
-$rsmm-nav2-height: 40px;
-$rsmm-footer-height: 60px;
-$rsmm-nav-margin: 20px;
+$rsmm-nav-margin:       20px;
+$rsmm-nav1-height:      60px;
+$rsmm-nav1-height-xs:   100px;
+$rsmm-nav2-height:      40px;
+$rsmm-nav2-height-xs:   50px;
+$rsmm-footer-height:    60px;
+$rsmm-footer-height-xs: 90px;
 
 @import 'rsmmVariables';
 @import 'bootstrap';
@@ -40,13 +43,21 @@ body {
         text-align: center;
     }
 
+    p {
+        text-align: justify;
+    }
+    
     a {
         color: $TEMNOZLATA;        
         &:hover {
             color: $ZLATA;
         }
     }
-
+    
+    ul {
+      list-style-image: url('/images/malizlatikrogec2.gif');
+    }
+    
     img {
         margin-bottom: 20px;
     }
