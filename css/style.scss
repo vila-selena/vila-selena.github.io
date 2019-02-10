@@ -31,6 +31,7 @@ $rsmm-nav2-height:      40px;
 $rsmm-nav2-height-xs:   50px;
 $rsmm-footer-height:    60px;
 $rsmm-footer-height-xs: 90px;
+$rsmm-min-width:        420px;
 
 @import 'rsmmVariables';
 @import 'bootstrap';
@@ -38,6 +39,8 @@ $rsmm-footer-height-xs: 90px;
 
 // custom settings
 body {
+    min-width: $rsmm-min-width;
+    
     h1, h2, h3, h4, h5, h6 {
         color: $ZLATA;
         text-align: center;
@@ -55,7 +58,7 @@ body {
     }
     
     ul {
-      list-style-image: url('/images/malizlatikrogec2.gif');
+      list-style-image: url('/images/malizlatikrogec.gif');
     }
     
     img {
@@ -76,6 +79,9 @@ body {
 
 // local pages settings 
 @import 'local';
+
+// banner panorama
+@import 'magnific-popup';
 
 // socials
 @import 'jssocials';

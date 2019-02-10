@@ -1,8 +1,0 @@
-pull-left 
-
-<ul class="nav navbar-nav navbar-right">
-    <p class="navbar-text">{{ page.lang-title }}</p>                
-</ul>
-
-
-

@@ -70,23 +70,16 @@
 
 <nav class="navbar navbar-default navbar-fixed-top" id="rsmm-nav-2">
     <div class="container">
-        
+
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar" aria-expanded="false">
+            <button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse" data-target="#top-navbar" aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            
-            {% if page.nav == 'index' %}
-                {% assign active = 'brand-active' %}
-            {% else %}
-                {% assign active = '' %}
-            {% endif %}
-            <a class="navbar-brand  {{ active }}" href="/{{ page.language }}/">Vila Selena</a>
         </div>
-
+        
         <div class="collapse navbar-collapse" id="top-navbar">
             <ul class="nav navbar-nav">
                 
@@ -94,12 +87,18 @@
                 
                 {% for node in site.data[navlang] %}
 
-                    {% if page.nav == node.nav %}
+                    {% if node.nav == page.nav %}
                         {% assign active = 'active' %}
                     {% else %}
                         {% assign active = '' %}
                     {% endif %}
 
+                    {% if node.brand == 'true' %}
+                        {% assign brand = 'brand' %}
+                    {% else %}
+                        {% assign brand = '' %}
+                    {% endif %}
+                
                     {% if node.subcategories != null %}
                         <li class="dropdown {{ active }}">
                             <a href="{{ site.url }}{{ node.href }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">

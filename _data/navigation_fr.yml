@@ -1,0 +1,19 @@
+- title: "About"
+  href: "/fr/about.html"
+  nav: "fr_about"
+  
+- title: "Apartments"
+  href: "/fr/apartments.html"
+  nav: "fr_apartments"
+  
+- title: "Location"
+  href: "/fr/location.html"
+  nav: "fr_location"
+  
+- title: "Gallery"
+  href: "/fr/gallery.html"
+  nav: "fr_gallery"
+  
+- title: "Reservation"
+  href: "/fr/reservation.html"
+  nav: "fr_reservation"  

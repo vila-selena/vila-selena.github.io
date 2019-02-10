@@ -1,8 +1,3 @@
-- title: "Vila Selena"
-  href: "/EN/"
-  nav: "en_index"
-  brand: "true"
-
 - title: "About"
   href: "/en/about.html"
   nav: "en_about"

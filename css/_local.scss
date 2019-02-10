@@ -1,5 +1,5 @@
 // apartments
-#rsmm-apartments {
+#rsmm-apartments, #rsmm-about {
     .rsmm-container {
         position: relative;
         width: 100%;
@@ -42,21 +42,21 @@
     }
     
     img {
-        margin-bottom: 0px;
-        width: 100%;
-        margin-left: auto;
-        margin-right: auto;
+        width: 32%;
+        margin-left: 3px;
+        margin-right: 3px;
+        margin-bottom: 10px;
     }
-}
-
-// about
-#rsmm-about {
-    img {
-        margin-bottom: 0px;
-    }
-}
-
-// za zacasno pospravit
-#lalala {
     
+    p {
+        text-align: center;
+    }
+}
+// changes for phone screen
+@media (max-width: $screen-sm-min) { 
+    #rsmm-gallery {
+        img {
+            width: 48%;
+        }
+    }
 }
