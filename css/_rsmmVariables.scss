@@ -7,6 +7,11 @@ $TEMNORDECA:                    #783226;
 $ZLATA:                         #C5A46D;
 // barva temnozlata (h1, h2, ...)
 $TEMNOZLATA:                    darken(#C5A46D, 30);
+// barva svetlo zlata (hover))
+$SVETLOZLATA:                   lighten($ZLATA, 30);
+// barva zlata rgba(0.6)(forms)
+$ZLATA06:                       rgba($ZLATA, 0.6);
+
 
 $BELA:                          #FFF;
 $CRNA:                          #000;
@@ -22,7 +27,7 @@ $brand-danger:                  #d9534f !default;
 //** Background color for `<body>`.
 $body-bg:                       $BELA !default;
 //** Global text color on `<body>`.
-$text-color:                    $TEMNOZELENA !default;
+$text-color:                    $CRNA !default;
 //** Blockquote 
 $blockquote-small-color:        $TEMNOZELENA !default;
 

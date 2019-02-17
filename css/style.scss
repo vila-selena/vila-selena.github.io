@@ -37,46 +37,6 @@ $rsmm-min-width:        360px;
 @import 'bootstrap';
 @import 'headfoot';
 
-// custom settings
-body {
-    min-width: $rsmm-min-width;
-    
-    h1, h2, h3, h4, h5, h6 {
-        color: $ZLATA;
-        text-align: center;
-    }
-
-    p {
-        text-align: justify;
-    }
-    
-    a {
-        color: $TEMNOZLATA;        
-        &:hover {
-            color: $ZLATA;
-        }
-    }
-    
-    ul {
-      list-style-image: url('/images/malizlatikrogec.gif');
-    }
-    
-    img {
-        margin-bottom: 20px;
-    }
-    
-    #rsmmCarousel {
-        img {
-            margin-bottom: 0px;
-        }
-    }
-    
-    .rsmm-color-carousel-caption {
-        color: $BELA;
-        font-family: Palanquin;
-    }
-} // body
-
 // local pages settings 
 @import 'local';
 
