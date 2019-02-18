@@ -15,43 +15,43 @@ nav: si_reservation
         </div>
             
         <div class="form-group col-sm-4">
-            <label for="dateArrival">Prihod</label>
-            <input type="date" class="form-control" id="dateArrival">
+            <label for="arrival">Prihod</label>
+            <input type="date" class="form-control" id="arrival">
         </div>
         <div class="form-group col-sm-4">
-            <label for="dateDeparture">Odhod</label>
-            <input type="date" class="form-control" id="dateDeparture">
+            <label for="departure">Odhod</label>
+            <input type="date" class="form-control" id="departure">
         </div>
         <div class="form-group col-sm-4">
-            <label for="inputPersons">Število oseb</label>
-            <input type="number" class="form-control" id="inputPersons">
+            <label for="persons">Število oseb</label>
+            <input type="number" class="form-control" id="persons">
         </div>
 
         <div class="form-group col-sm-6">
-            <label for="inputName">Ime</label>
-            <input type="text" class="form-control" id="inputName">
+            <label for="name">Ime</label>
+            <input type="text" class="form-control" id="name">
         </div>
-
         <div class="form-group col-sm-6">
-            <label for="inputPhone">Telefon</label>
-            <input type="tel" class="form-control" id="inputPhone">
+            <label for="phone">Telefon</label>
+            <input type="tel" class="form-control" id="phone">
         </div>
 
         <div class="form-group col-sm-12">
-            <label for="inputEmail">E-pošta</label>
-            <input type="email" class="form-control" id="inputEmail">
+            <label for="email">E-pošta</label>
+            <input type="email" class="form-control" id="email">
         </div>
 
         <div class="form-group col-sm-12">
-            <label for="inputMsg">Sporočilo</label>
-            <textarea class="form-control" rows="4" id="inputMsg"></textarea>
+            <label for="message">Sporočilo</label>
+            <textarea class="form-control" rows="4" id="message"></textarea>
         </div>
 
         <div class="form-group col-sm-12">
-            <button type="submit" class="btn btn-default">Pošlji</button>
+            <button onclick="sendMail(); return false" type="submit" class="btn btn-default">Pošlji</button>
         </div>
 
         </form>
     </div>
 </div>
 
+<script src="/js/sendmail.js"></script>

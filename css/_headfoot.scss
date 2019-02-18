@@ -1,6 +1,14 @@
 // header nad menijem
 #rsmm-nav-1 {
     min-width: $rsmm-min-width;
+
+    #rsmm-mailto {
+        margin-right: 130px;  // zaradi mailto scripte
+        a {
+            width: 140px;
+            display: inline-block;
+        }
+    }
     
     color: $BELA;
     background-color: $ZLATA;
