@@ -32,15 +32,72 @@ function MapTypeControl(controlDiv, map) {
 }
 
 
-function setMarker(text, width, position, map) {
-    const h = 40;
-    const r = 12;
-    const m = h/2 + r - 5;
+function setPointer(text, width, position, map) {
+    const w = width / 2;
+    const h = 30 / 2;
+    const r = 12 / 2;
+    
+    var p = '';
+    p += 'M -' +r+   ',-' +h+   ' ';
+    p += 'l -' +7*r+ ',-' +8*r+ ' ';
+    p += 'l -' +r+   ',+' +r+   ' ';
+    p += 'l  ' +0+   ',-' +3*r+ ' ';
+    p += 'l +' +3*r+ ', ' +0+   ' ';
+    p += 'l -' +r+   ',+' +r+   ' ';
+    p += 'L +' +r+   ',-' +h+   ' ';
+    p += 'L +' +w+   ',-' +h+   ' ';
+    p += 'L +' +w+   ',+' +h+   ' ';
+    p += 'L -' +w+   ',+' +h+   ' ';
+    p += 'L -' +w+   ',-' +h+   ' ';
+    p += 'z';
     
     var myIcon = {
-//        path: 'M 0,0 L 0,-10 L -60,-10 L -60,-50 L 60,-50 L 60,-10 L 10,-10 z',
-//        path: 'M 0,0 L 0,-10 L -'+width+',-10 L -'+width+',-50 L '+width+',-50 L '+width+',-10 L 10,-10 z',
-        path: 'M 0,0 L 0,-'+r+' L -'+width+',-'+r+' L -'+width+',-'+h+' L '+width+',-'+h+' L '+width+',-'+r+' L '+r+',-'+r+' z',
+        path: p,
+        scale: 1,
+        fillColor: '#C5A46D',
+        fillOpacity: 0.5,
+        strokeColor: '#C5A46D',
+        strokeWeight: 2,
+    };
+
+    var myLabel = {
+        color: '#004F46',
+        fontFamily: 'Palanquin, sans-serif',
+        fontSize: '18px',
+        fontWeight: 'bold',
+        text: text,
+    };
+
+    var myPointer = new google.maps.Marker({
+        position: position,
+        map: map,
+        label: myLabel,
+        icon: myIcon,
+        clickable: true,        
+    });
+    
+    return myPointer;
+}
+
+
+function setMarker(text, width, position, map) {
+    const w = width / 2;
+    const r = 12;
+    const h = 30 + r;
+    const m = h/2 + r/2;
+
+    var p = '';
+    p += 'M  ' +0+   ', ' +0+   ' ';
+    p += 'L  ' +0+   ',-' +r+   ' ';
+    p += 'L -' +w+   ',-' +r+   ' ';
+    p += 'L -' +w+   ',-' +h+   ' ';
+    p += 'L +' +w+   ',-' +h+   ' ';
+    p += 'L +' +w+   ',-' +r+   ' ';
+    p += 'L +' +r+   ',-' +r+   ' ';
+    p += 'z';
+    
+    var myIcon = {
+        path: p,
         scale: 1,
         fillColor: '#C5A46D',
         fillOpacity: 0.5,
@@ -96,7 +153,7 @@ function initMap() {
         ],
     });
 
-    var mSelena = setMarker('Vila Selena', 50, vilaSelena, map);
+    var mSelena = setMarker('Vila Selena', 100, vilaSelena, map);
     
     var c10m = new google.maps.Circle({
         strokeColor: '#783226',  
@@ -128,26 +185,16 @@ function initMap() {
         clickable: false,
     });
 
-    var mBusRail = setMarker('Avtobusna in železniška postaja', 130, {lat: 46.058525, lng: 14.511328}, map); 
-    var mTivoli = setMarker('Park Tivoli', 50, {lat: 46.056134, lng: 14.496694}, map);
-    var mTromost = setMarker('Tromostovje', 60, {lat: 46.051016, lng: 14.506297}, map);
-    var mZmaj = setMarker('Zmajski most', 60, {lat: 46.052098, lng: 14.510292}, map);
-    var mGrad = setMarker('Ljubljanski grad', 70, {lat: 46.048919, lng: 14.508608}, map);
+    var mBusRail = setMarker('Avtobusna in železniška postaja', 260, {lat: 46.058525, lng: 14.511328}, map); 
+    var mTivoli = setMarker('Park Tivoli', 100, {lat: 46.056134, lng: 14.496694}, map);
+    var mTromost = setMarker('Tromostovje', 120, {lat: 46.051016, lng: 14.506297}, map);
+    var mZmaj = setMarker('Zmajski most', 120, {lat: 46.052098, lng: 14.510292}, map);
+    var mGrad = setMarker('Ljubljanski grad', 140, {lat: 46.048919, lng: 14.508608}, map);
 
     // to airpport 
-    var mAirpLine = new google.maps.Polyline({
-        path: [{lat: 46.058994, lng: 14.498985}, {lat: 46.061689, lng: 14.496013}], 
-        strokeColor: '#783226',
-        strokeOpacity: 1.0,
-        strokeWeight: 4,
-        icons: [{
-          icon: {path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW},
-          offset: '100%'
-        }],
-        map: map,
-    });
-    var mAirp22 = setMarker('Letališče Jožeta Pučnika (22km)', 130, {lat: 46.058994, lng: 14.498985}, map); 
-    var mAirport = setMarker('Letališče Jožeta Pučnika', 110, {lat: 46.233116, lng: 14.453966}, map);
+//    var mAirp22 = setPointer('Letališče Jožeta Pučnika (22km)', 260, {lat: 46.058994, lng: 14.498985}, map); 
+    var mAirp22 = setPointer('Letališče Jožeta Pučnika (22km)', 260, {lat: 46.0595, lng: 14.4983}, map); 
+    var mAirport = setMarker('Letališče Jožeta Pučnika', 220, {lat: 46.233116, lng: 14.453966}, map);
 
     // click actions
     var mZoom = 15; // zoom to hide/show markers
@@ -159,7 +206,6 @@ function initMap() {
             mTivoli.setVisible(false);
             mZmaj.setVisible(false);
             mGrad.setVisible(false);
-            mAirpLine.setVisible(false);
             mAirp22.setVisible(false);
         }
         else {
@@ -168,7 +214,6 @@ function initMap() {
             mTivoli.setVisible(true);
             mZmaj.setVisible(true);
             mGrad.setVisible(true);
-            mAirpLine.setVisible(true);
             mAirp22.setVisible(true);
         }
         
