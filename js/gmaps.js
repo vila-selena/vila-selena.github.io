@@ -1,134 +1,177 @@
-function MapTypeControl(controlDiv, map) {
-    // control border
-    var controlUI = document.createElement('div');
-    controlUI.style.border = '3px solid #fff';
-    controlUI.style.cursor = 'pointer';
-    controlUI.style.width = '80px';
-    controlUI.style.marginLeft = '20px';
-    controlUI.title = 'Satellite';
-    controlDiv.appendChild(controlUI);
-
-    // control interior
-    var controlPic = document.createElement('img');
-    controlPic.src = '/images/map-satelit.jpg';
-    controlPic.style.width = '100%';
-    controlPic.style.margin = '0px';
-    controlUI.appendChild(controlPic);
-
-    // event
-    controlUI.addEventListener('click', function() {
-        var mt = map.getMapTypeId();
-        if (mt == 'roadmap') {
-            controlUI.title = 'Street map';
-            controlPic.src = '/images/map-street.jpg';  
-            map.setMapTypeId(google.maps.MapTypeId.SATELLITE);
-        }
-        else if (mt == 'satellite') {
-            controlUI.title = 'Satellite map';
-            controlPic.src = '/images/map-satelit.jpg';  
-            map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
-        };
-    });
-}
-
-
-function setPointer(text, width, position, map) {
-    const w = width / 2;
-    const h = 30 / 2;
-    const r = 12 / 2;
-    
-    var p = '';
-    p += 'M -' +r+   ',-' +h+   ' ';
-    p += 'l -' +7*r+ ',-' +8*r+ ' ';
-    p += 'l -' +r+   ',+' +r+   ' ';
-    p += 'l  ' +0+   ',-' +3*r+ ' ';
-    p += 'l +' +3*r+ ', ' +0+   ' ';
-    p += 'l -' +r+   ',+' +r+   ' ';
-    p += 'L +' +r+   ',-' +h+   ' ';
-    p += 'L +' +w+   ',-' +h+   ' ';
-    p += 'L +' +w+   ',+' +h+   ' ';
-    p += 'L -' +w+   ',+' +h+   ' ';
-    p += 'L -' +w+   ',-' +h+   ' ';
-    p += 'z';
-    
-    var myIcon = {
-        path: p,
-        scale: 1,
-        fillColor: '#C5A46D',
-        fillOpacity: 0.5,
-        strokeColor: '#C5A46D',
-        strokeWeight: 2,
-    };
-
-    var myLabel = {
-        color: '#004F46',
-        fontFamily: 'Palanquin, sans-serif',
-        fontSize: '18px',
-        fontWeight: 'bold',
-        text: text,
-    };
-
-    var myPointer = new google.maps.Marker({
-        position: position,
-        map: map,
-        label: myLabel,
-        icon: myIcon,
-        clickable: true,        
-    });
-    
-    return myPointer;
-}
-
-
-function setMarker(text, width, position, map) {
-    const w = width / 2;
-    const r = 12;
-    const h = 30 + r;
-    const m = h/2 + r/2;
-
-    var p = '';
-    p += 'M  ' +0+   ', ' +0+   ' ';
-    p += 'L  ' +0+   ',-' +r+   ' ';
-    p += 'L -' +w+   ',-' +r+   ' ';
-    p += 'L -' +w+   ',-' +h+   ' ';
-    p += 'L +' +w+   ',-' +h+   ' ';
-    p += 'L +' +w+   ',-' +r+   ' ';
-    p += 'L +' +r+   ',-' +r+   ' ';
-    p += 'z';
-    
-    var myIcon = {
-        path: p,
-        scale: 1,
-        fillColor: '#C5A46D',
-        fillOpacity: 0.5,
-        strokeColor: '#C5A46D',
-        strokeWeight: 2,
-        labelOrigin: new google.maps.Point(0,-m),
-    };
-
-    var myLabel = {
-        color: '#004F46',
-        fontFamily: 'Palanquin, sans-serif',
-        fontSize: '18px',
-        fontWeight: 'bold',
-        text: text,
-    };
-
-    var myMarker = new google.maps.Marker({
-        position: position,
-        map: map,
-        label: myLabel,
-        icon: myIcon,
-        clickable: true,        
-    });
-    
-    return myMarker;
-} 
-
-
-// show google map for location
 function initMap() {
+
+    // control to toggle streen vs satelite
+    function MapTypeControl(controlDiv, map) {
+        // control border
+        var controlUI = document.createElement('div');
+        controlUI.style.border = '3px solid #fff';
+        controlUI.style.cursor = 'pointer';
+        controlUI.style.width = '80px';
+        controlUI.style.marginLeft = '20px';
+        controlUI.title = 'Satellite';
+        controlDiv.appendChild(controlUI);
+
+        // control interior
+        var controlPic = document.createElement('img');
+        controlPic.src = '/images/map-satelit.jpg';
+        controlPic.style.width = '100%';
+        controlPic.style.margin = '0px';
+        controlUI.appendChild(controlPic);
+
+        // event
+        controlUI.addEventListener('click', function() {
+            var mt = map.getMapTypeId();
+            if (mt == 'roadmap') {
+                controlUI.title = 'Street map';
+                controlPic.src = '/images/map-street.jpg';  
+                map.setMapTypeId(google.maps.MapTypeId.SATELLITE);
+            }
+            else if (mt == 'satellite') {
+                controlUI.title = 'Satellite map';
+                controlPic.src = '/images/map-satelit.jpg';  
+                map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
+            };
+        });
+    }
+
+    const height = 30;
+    const repy = 15;
+    const repx = -10;
+    const repd = 30;
     
+    // path for pointer
+    function pathPointer(width) {
+        const w = width / 2;
+        const h = height / 2;
+        const r = repy / 2;
+
+        var p = '';
+        p += 'M -' +r+   ',-' +h+   ' ';
+        p += 'l -' +7*r+ ',-' +8*r+ ' ';
+        p += 'l -' +r+   ',+' +r+   ' ';
+        p += 'l  ' +0+   ',-' +3*r+ ' ';
+        p += 'l +' +3*r+ ', ' +0+   ' ';
+        p += 'l -' +r+   ',+' +r+   ' ';
+        p += 'L +' +r+   ',-' +h+   ' ';
+        p += 'L +' +w+   ',-' +h+   ' ';
+        p += 'L +' +w+   ',+' +h+   ' ';
+        p += 'L -' +w+   ',+' +h+   ' ';
+        p += 'L -' +w+   ',-' +h+   ' ';
+        p += 'z';
+
+        return p;
+    }
+
+    // path for marker
+    function pathMarker(width) {
+        const w = width / 2;
+        const r = repy;
+        const h = height + repy;
+
+        var p = '';
+        p += 'M  ' +0+   ', ' +0+   ' ';
+        p += 'L  ' +0+   ',-' +r+   ' ';
+        p += 'L -' +w+   ',-' +r+   ' ';
+        p += 'L -' +w+   ',-' +h+   ' ';
+        p += 'L +' +w+   ',-' +h+   ' ';
+        p += 'L +' +w+   ',-' +r+   ' ';
+        p += 'L +' +r+   ',-' +r+   ' ';
+        p += 'z';
+
+        return p;
+    }
+
+    // another path for marker
+    function pathMarker2(width) {
+        const x = 0;
+        const y = 0;
+        const w2 = width / 2;
+        const h = -height;
+        const rh = -h;
+        const rx = repx;
+        const ry = -repy;
+        const rd = repd;
+        
+        const t0 = {x:rx, y:0};
+        const t1 = {x:0, y:ry};
+        const t2 = {x:rd, y:ry};
+        const t3 = {x:w2, y:ry};
+        const t4 = {x:w2+rh, y:ry};
+        const t5 = {x:w2+rh, y:ry+h};
+        const t6 = {x:w2, y:ry+h};
+
+        var p = '';
+        p += 'M '+ (+t0.x) +' '+ (+t0.y) +' ';
+        p += 'C '+ (-t1.x) +' '+ (+t1.y) +' '+ (-t2.x) +' '+ (+t2.y) +' '+ (-t3.x) +' '+ (+t3.y) +' ';
+        p += 'C '+ (-t4.x) +' '+ (+t4.y) +' '+ (-t5.x) +' '+ (+t5.y) +' '+ (-t6.x) +' '+ (+t6.y) +' ';
+        p += 'L '+ (-t6.x) +' '+ (+t6.y) +' '+ (+t6.x) +' '+ (+t6.y) +' ';
+        p += 'C '+ (+t5.x) +' '+ (+t5.y) +' '+ (+t4.x) +' '+ (+t4.y) +' '+ (+t3.x) +' '+ (+t3.y) +' ';
+        p += 'C '+ (+t2.x) +' '+ (+t2.y) +' '+ (+t1.x) +' '+ (+t1.y) +' '+ (+t0.x) +' '+ (+t0.y) +' ';
+        return p;
+    }
+
+    // icon common 
+    var myIcon = {
+        scale: 1,
+        fillColor: '#C5A46D',
+        fillOpacity: 0.5,
+        strokeColor: '#C5A46D',
+        strokeWeight: 2,
+    };
+
+    // label common 
+    var myLabel = {
+        color: '#004F46',
+        fontFamily: 'Palanquin, sans-serif',
+        fontSize: '18px',
+        fontWeight: 'bold',
+    };
+
+    // create pointer
+    function setPointer(text, width, position, map) {
+
+        var pIcon = myIcon;
+        pIcon.labelOrigin = new google.maps.Point(0,0);
+        pIcon.path = pathPointer(width);
+
+        pLabel = myLabel;
+        pLabel.text = text;
+
+        var pointer = new google.maps.Marker({
+            position: position,
+            map: map,
+            label: pLabel,
+            icon: pIcon,
+            clickable: true,        
+        });
+
+        return pointer;
+    }
+
+    // create marker
+    function setMarker(text, width, position, map) {
+
+        var mIcon = myIcon;
+        const m = height/2 + repy;
+        mIcon.labelOrigin = new google.maps.Point(0,-m);
+//        mIcon.path = pathMarker2(width);
+        mIcon.path = pathMarker(width);
+
+        mLabel = myLabel;
+        mLabel.text = text;
+
+        var marker = new google.maps.Marker({
+            position: position,
+            map: map,
+            label: mLabel,
+            icon: mIcon,
+            clickable: true,        
+        });
+
+        return marker;
+    } 
+
+// start of initMap    
     var vilaSelena = {lat: 46.056812, lng: 14.503735};
 //    var mapCenter = {lat: 46.055, lng: 14.507};
     var mapCenter = vilaSelena;
@@ -185,11 +228,11 @@ function initMap() {
         clickable: false,
     });
 
-    var mBusRail = setMarker('Avtobusna in železniška postaja', 260, {lat: 46.058525, lng: 14.511328}, map); 
-    var mTivoli = setMarker('Park Tivoli', 100, {lat: 46.056134, lng: 14.496694}, map);
-    var mTromost = setMarker('Tromostovje', 120, {lat: 46.051016, lng: 14.506297}, map);
-    var mZmaj = setMarker('Zmajski most', 120, {lat: 46.052098, lng: 14.510292}, map);
-    var mGrad = setMarker('Ljubljanski grad', 140, {lat: 46.048919, lng: 14.508608}, map);
+    var mBusRail = setMarker('Avtobusna in železniška postaja', 250, {lat: 46.058525, lng: 14.511328}, map); 
+    var mTivoli = setMarker('Park Tivoli', 80, {lat: 46.056134, lng: 14.496694}, map);
+    var mTromost = setMarker('Tromostovje', 100, {lat: 46.051016, lng: 14.506297}, map);
+    var mZmaj = setMarker('Zmajski most', 100, {lat: 46.052098, lng: 14.510292}, map);
+    var mGrad = setMarker('Ljubljanski grad', 120, {lat: 46.048919, lng: 14.508608}, map);
 
     // to airpport 
 //    var mAirp22 = setPointer('Letališče Jožeta Pučnika (22km)', 260, {lat: 46.058994, lng: 14.498985}, map); 
