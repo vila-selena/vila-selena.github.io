@@ -1,0 +1,35 @@
+<div id="rsmm-nav-left">
+
+    
+    {% if page.nav == 'index' %}
+        {% assign active = 'brand-active' %}
+    {% else %}
+        {% assign active = '' %}
+    {% endif %}
+
+    <a href="/{{ page.language }}/">
+        <img src="/images/logo.jpg" alt="Vila Selena" class="img-responsive">
+    </a>
+
+    {% assign navlang = 'navigation_' | append: page.language %}
+
+    {% for node in site.data[navlang] %}
+
+        {% if page.nav == node.nav %}
+            {% assign active = 'active' %}
+        {% else %}
+            {% assign active = '' %}
+        {% endif %}
+
+        <div class="{{ active }} {{ brand }}">
+            <a href="{{ site.url }}{{ node.href }}">{{ node.title }}</a>
+        </div>
+
+    {% endfor %}
+
+    <div>
+        <span id="social-share"></span>    
+    </div>
+
+    
+</div>

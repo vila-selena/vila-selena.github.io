@@ -34,82 +34,116 @@ function initMap() {
         });
     }
 
-    const height = 30;
-    const repy = 15;
-    const repx = -10;
-    const repd = 30;
+    // common for all markers
+    const height = 30;      // height
+    const repy = 20;        // rep height
+    const repx = 10;        // rep x minus: left, plus: right
+    const repd = 20;        // rep x delta on bottom line
+
+    // strait path for pointer
+    function pathPointer1(width) {
+        const l = -width/2;
+        const r = +width/2;
+        const t = -height/2;
+        const b = +height/2;
+        const h = height;
+        const px = -2*h, py = t-3*h;
+        const dx = 6, dy = 4;
+
+        var p = '';
+        p += 'M '+ (px+dx)   +' '+ (py-dy)    +' ';
+        p += 'L '+ (dx+dy)   +' '+ (t)        +' ';
+        p += 'L '+ (r)       +' '+ (t)        +' ';
+        p += 'L '+ (r)       +' '+ (b)        +' ';
+        p += 'L '+ (l)       +' '+ (b)        +' ';
+        p += 'L '+ (l)       +' '+ (t)        +' ';
+        p += 'L '+ (-dx-dy)  +' '+ (t)        +' ';
+        p += 'L '+ (px-dx)   +' '+ (py+dy)    +' ';
+        p += 'L '+ (px-3*dx) +' '+ (py+3*dy)  +' ';
+        p += 'L '+ (px-3*dx) +' '+ (py-6*dy)  +' ';
+        p += 'L '+ (px+3*dx) +' '+ (py-3*dy)  +' ';
+        p += 'L '+ (px+dx)   +' '+ (py-dy)    +' ';
+        return p;
+    }
     
-    // path for pointer
-    function pathPointer(width) {
-        const w = width / 2;
-        const h = height / 2;
-        const r = repy / 2;
+    // rounded path for pointer
+    function pathPointer2(width) {
+        const l = -width / 2 + height / 2;
+        const r = +width / 2 - height / 2;
+        const t = -height / 2;
+        const b = +height / 2;
+        const h = height;
+        const px = -1*h, py = t-1.5*h;
+        const dx = 6, dy = 4;
+
+        const px1 = px+dx, py1 = py-dy;
+        const px2 = px+3*dx, py2 = py-3*dy;
+        const px3 = px1-dy, py3 = py1-dx;
+        const px7 = px-dx, py7 = py+dy;
+        const px6 = px-3*dx, py6 = py+3*dy;
+        const px5 = px7-dy, py5 = py7-dx;
+        const px4 = px-4*dy, py4 = py-4*dx;
 
         var p = '';
-        p += 'M -' +r+   ',-' +h+   ' ';
-        p += 'l -' +7*r+ ',-' +8*r+ ' ';
-        p += 'l -' +r+   ',+' +r+   ' ';
-        p += 'l  ' +0+   ',-' +3*r+ ' ';
-        p += 'l +' +3*r+ ', ' +0+   ' ';
-        p += 'l -' +r+   ',+' +r+   ' ';
-        p += 'L +' +r+   ',-' +h+   ' ';
-        p += 'L +' +w+   ',-' +h+   ' ';
-        p += 'L +' +w+   ',+' +h+   ' ';
-        p += 'L -' +w+   ',+' +h+   ' ';
-        p += 'L -' +w+   ',-' +h+   ' ';
-        p += 'z';
-
+        p += 'M '+ (px1)     +' '+ (py1)    +' ';
+        // napis
+        p += 'C '+ (dx)      +' '+ (t)      +' '+ (dx)  +' '+ (t)  +' '+ (r)     +' '+ (t)      +' ';
+        p += 'C '+ (r+h)     +' '+ (t)      +' '+ (r+h) +' '+ (b)  +' '+ (r)     +' '+ (b)      +' ';
+        p += 'L '+ (l)       +' '+ (b)      +' ';
+        p += 'C '+ (l-h)     +' '+ (b)      +' '+ (l-h) +' '+ (t)  +' '+ (l)     +' '+ (t)      +' ';
+        p += 'C '+ (-dx)     +' '+ (t)      +' '+ (-dx) +' '+ (t)  +' '+ (px7)   +' '+ (py7)    +' ';
+        // puscica
+        p += 'L '+ (px6) +' '+ (py6)  +' ';
+        p += 'C '+ (px5) +' '+ (py5)  +' '+ (px5) +' '+ (py5)  +' '+ (px4) +' '+ (py4)  +' ';
+        p += 'C '+ (px3) +' '+ (py3)  +' '+ (px3) +' '+ (py3)  +' '+ (px2) +' '+ (py2)  +' ';
+        p += 'L '+ (px1) +' '+ (py1)  +' ';
         return p;
     }
 
-    // path for marker
-    function pathMarker(width) {
-        const w = width / 2;
-        const r = repy;
-        const h = height + repy;
+    // straight path for marker
+    function pathMarker1(width, lr) {
+        // lr: -1 for left, +1 for right, 0 for straight
+        const m = -repx * lr;
+        const l = m - width / 2;
+        const r = m + width / 2;
+        const b = -repy;
+        const t = b - height;
+        const h = height;
+        const dx = repx, dy = 0;
 
         var p = '';
-        p += 'M  ' +0+   ', ' +0+   ' ';
-        p += 'L  ' +0+   ',-' +r+   ' ';
-        p += 'L -' +w+   ',-' +r+   ' ';
-        p += 'L -' +w+   ',-' +h+   ' ';
-        p += 'L +' +w+   ',-' +h+   ' ';
-        p += 'L +' +w+   ',-' +r+   ' ';
-        p += 'L +' +r+   ',-' +r+   ' ';
-        p += 'z';
-
+        p += 'M '+ (0)    +' '+ (0)    +' ';
+        p += 'L '+ (m-dx) +' '+ (b-dy) +' ';
+        p += 'L '+ (l)    +' '+ (b)    +' ';
+        p += 'L '+ (l)    +' '+ (t)    +' ';
+        p += 'L '+ (r)    +' '+ (t)    +' ';
+        p += 'L '+ (r)    +' '+ (b)    +' ';
+        p += 'L '+ (m+dx) +' '+ (b-dy) +' ';
+        p += 'L '+ (0)    +' '+ (0)    +' ';
         return p;
     }
 
-    // another path for marker
-    function pathMarker2(width) {
-        const x = 0;
-        const y = 0;
-        const w2 = width / 2;
-        const h = -height;
-        const rh = -h;
-        const rx = repx;
-        const ry = -repy;
-        const rd = repd;
-        
-        const t0 = {x:rx, y:0};
-        const t1 = {x:0, y:ry};
-        const t2 = {x:rd, y:ry};
-        const t3 = {x:w2, y:ry};
-        const t4 = {x:w2+rh, y:ry};
-        const t5 = {x:w2+rh, y:ry+h};
-        const t6 = {x:w2, y:ry+h};
+    // rounded path for marker
+    function pathMarker2(width, lr) {
+        // lr: -1 for left, +1 for right, 0 for straight
+        const m = -repx * lr;
+        const l = m - width / 2 + height / 2;
+        const r = m + width / 2 - height / 2;
+        const b = -repy;
+        const t = b - height;
+        const h = height;
+        const dx = repd, dy = 0;
 
         var p = '';
-        p += 'M '+ (+t0.x) +' '+ (+t0.y) +' ';
-        p += 'C '+ (-t1.x) +' '+ (+t1.y) +' '+ (-t2.x) +' '+ (+t2.y) +' '+ (-t3.x) +' '+ (+t3.y) +' ';
-        p += 'C '+ (-t4.x) +' '+ (+t4.y) +' '+ (-t5.x) +' '+ (+t5.y) +' '+ (-t6.x) +' '+ (+t6.y) +' ';
-        p += 'L '+ (-t6.x) +' '+ (+t6.y) +' '+ (+t6.x) +' '+ (+t6.y) +' ';
-        p += 'C '+ (+t5.x) +' '+ (+t5.y) +' '+ (+t4.x) +' '+ (+t4.y) +' '+ (+t3.x) +' '+ (+t3.y) +' ';
-        p += 'C '+ (+t2.x) +' '+ (+t2.y) +' '+ (+t1.x) +' '+ (+t1.y) +' '+ (+t0.x) +' '+ (+t0.y) +' ';
+        p += 'M '+ (0)    +' '+ (0)    +' ';
+        p += 'C '+ (m)    +' '+ (b-dy) +' '+ (m-dx) +' '+ (b)   +' '+ (l)  +' '+ (b)  +' ';
+        p += 'C '+ (l-h)  +' '+ (b)    +' '+ (l-h)  +' '+ (t)   +' '+ (l)  +' '+ (t)  +' ';
+        p += 'L '+ (l)    +' '+ (t)    +' '+ (r)    +' '+ (t)   +' ';
+        p += 'C '+ (r+h)  +' '+ (t)    +' '+ (r+h)  +' '+ (b)   +' '+ (r)  +' '+ (b)  +' ';
+        p += 'C '+ (m+dx) +' '+ (b)    +' '+ (m)    +' '+ (b+dy)+' '+ (0)  +' '+ (0)  +' ';
         return p;
     }
-
+    
     // icon common 
     var myIcon = {
         scale: 1,
@@ -132,7 +166,7 @@ function initMap() {
 
         var pIcon = myIcon;
         pIcon.labelOrigin = new google.maps.Point(0,0);
-        pIcon.path = pathPointer(width);
+        pIcon.path = pathPointer2(width);
 
         pLabel = myLabel;
         pLabel.text = text;
@@ -149,13 +183,13 @@ function initMap() {
     }
 
     // create marker
-    function setMarker(text, width, position, map) {
+    function setMarker(text, width, lr, position, map) {
 
         var mIcon = myIcon;
-        const m = height/2 + repy;
-        mIcon.labelOrigin = new google.maps.Point(0,-m);
-//        mIcon.path = pathMarker2(width);
-        mIcon.path = pathMarker(width);
+        const my = height/2 + repy;
+        const mx = -repx * lr;
+        mIcon.labelOrigin = new google.maps.Point(mx,-my);
+        mIcon.path = pathMarker2(width,lr);
 
         mLabel = myLabel;
         mLabel.text = text;
@@ -196,7 +230,7 @@ function initMap() {
         ],
     });
 
-    var mSelena = setMarker('Vila Selena', 100, vilaSelena, map);
+    var mSelena = setMarker('Vila Selena', 100, 0, vilaSelena, map);
     
     var c10m = new google.maps.Circle({
         strokeColor: '#783226',  
@@ -228,16 +262,16 @@ function initMap() {
         clickable: false,
     });
 
-    var mBusRail = setMarker('Avtobusna in železniška postaja', 250, {lat: 46.058525, lng: 14.511328}, map); 
-    var mTivoli = setMarker('Park Tivoli', 80, {lat: 46.056134, lng: 14.496694}, map);
-    var mTromost = setMarker('Tromostovje', 100, {lat: 46.051016, lng: 14.506297}, map);
-    var mZmaj = setMarker('Zmajski most', 100, {lat: 46.052098, lng: 14.510292}, map);
-    var mGrad = setMarker('Ljubljanski grad', 120, {lat: 46.048919, lng: 14.508608}, map);
+    var mBusRail = setMarker('Avtobusna in železniška postaja', 260, -1,  {lat: 46.058525, lng: 14.511328}, map); 
+    var mTivoli = setMarker('Park Tivoli', 90, +1, {lat: 46.056134, lng: 14.496694}, map);
+    var mTromost = setMarker('Tromostovje', 110, +1, {lat: 46.051016, lng: 14.506297}, map);
+    var mZmaj = setMarker('Zmajski most', 115, -1, {lat: 46.052098, lng: 14.510292}, map);
+    var mGrad = setMarker('Ljubljanski grad', 135, -1, {lat: 46.048919, lng: 14.508608}, map);
 
     // to airpport 
 //    var mAirp22 = setPointer('Letališče Jožeta Pučnika (22km)', 260, {lat: 46.058994, lng: 14.498985}, map); 
     var mAirp22 = setPointer('Letališče Jožeta Pučnika (22km)', 260, {lat: 46.0595, lng: 14.4983}, map); 
-    var mAirport = setMarker('Letališče Jožeta Pučnika', 220, {lat: 46.233116, lng: 14.453966}, map);
+    var mAirport = setMarker('Letališče Jožeta Pučnika', 210, 0, {lat: 46.233116, lng: 14.453966}, map);
 
     // click actions
     var mZoom = 15; // zoom to hide/show markers
