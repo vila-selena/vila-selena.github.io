@@ -23,6 +23,14 @@
     font-style: italic;
 }
 
+@font-face {
+    font-family: 'Tangerine';
+    src: url('/fonts/tangerine-regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 // header and footer sizes
 $rsmm-nav-margin:       20px;
 $rsmm-nav1-height:      60px;
@@ -51,7 +59,7 @@ $rsmm-min-width:        360px;
 //    top: -20px;
 //    margin-bottom: -20px;
     i {
-//        color: $CRNA;
+        color: $TEMNOZELENA;
     }
     .jssocials-share-link { 
         border: 0; 

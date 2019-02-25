@@ -35,10 +35,10 @@ function initMap() {
     }
 
     // common for all markers
-    const height = 30;      // height
-    const repy = 20;        // rep height
-    const repx = 10;        // rep x minus: left, plus: right
-    const repd = 20;        // rep x delta on bottom line
+    const height = 26;      // height
+    const repy = 24;        // rep height
+    const repx = 12;        // rep x minus: left, plus: right
+    const repd = 12;        // rep x delta on bottom line
 
     // strait path for pointer
     function pathPointer1(width) {
@@ -143,19 +143,23 @@ function initMap() {
         p += 'C '+ (m+dx) +' '+ (b)    +' '+ (m)    +' '+ (b+dy)+' '+ (0)  +' '+ (0)  +' ';
         return p;
     }
+
+    const TEMNOZELENA = '#004F46';
+    const TEMNORDECA = '#783226';
+    const ZLATA = '#C5A46D';
     
     // icon common 
     var myIcon = {
         scale: 1,
-        fillColor: '#C5A46D',
-        fillOpacity: 0.5,
-        strokeColor: '#C5A46D',
+        fillColor: TEMNOZELENA, //TEMNORDECA,
+        fillOpacity: 0.4,
+        strokeColor: TEMNOZELENA, //TEMNORDECA,
         strokeWeight: 2,
     };
 
     // label common 
     var myLabel = {
-        color: '#004F46',
+        color: TEMNORDECA, //TEMNOZELENA,
         fontFamily: 'Palanquin, sans-serif',
         fontSize: '18px',
         fontWeight: 'bold',

@@ -3,7 +3,7 @@ body {
     min-width: $rsmm-min-width;
     
     h1, h2, h3, h4, h5, h6 {
-        color: $ZLATA;
+        color: $TEMNORDECA;
         text-align: left;
     }
 
@@ -12,9 +12,9 @@ body {
     }
     
     a {
-        color: $TEMNOZLATA;        
+        color: $TEMNOZELENA;        
         &:hover {
-            color: $ZLATA;
+            color: $TEMNORDECA;
         }
     }
     
@@ -128,7 +128,7 @@ body {
     }
     
     img {
-        width: 32%;
+        width: 31%;
         margin-left: 3px;
         margin-right: 3px;
         margin-bottom: 10px;

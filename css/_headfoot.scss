@@ -6,19 +6,20 @@
     border-radius: 0;
     height: $rsmm-nav1-height;
     min-height: $rsmm-nav1-height;
-    
-    color: $CRNA;
+
     background-color: $BELA;
     font-family: Palanquin;
     
     a {
-        color: inherit;
-        &:focus {
+        color: $TEMNOZELENA;
+        &:hover {
+            color: $TEMNORDECA;
             background-color: inherit;
         }
     }
     
     .rsmm-text-top {
+        color: $TEMNOZELENA;
         margin-top: 10px;
         line-height: $zastave-height;
         font-weight: bold;
@@ -32,8 +33,7 @@
     // zastave
     #rsmm-zastave {
         .rsmm-zastave-icon {
-//            color: $BELA;
-            color: $CRNA;
+            color: $TEMNORDECA;
             margin: 10px 6px;
             float: left;
             height: $zastave-height;
@@ -71,9 +71,27 @@
 
 // navigation left
 #rsmm-nav-left {
-    color: $CRNA;
+    color: $TEMNORDECA;
     background-color: $BELA;
-    
+
+    font-family: ArsenalBold;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    a {
+        color: $TEMNOZELENA;
+        &:hover {
+            color: $TEMNORDECA;
+            background-color: inherit;
+        }
+    }
+
+    .active {
+        a {
+            color: $TEMNORDECA;
+        }
+    }
 }
 
 
@@ -93,6 +111,8 @@
     font-weight: bold;
     text-transform: uppercase;
 
+    
+    
     .dropdown-menu {
         border: 0;
     }
