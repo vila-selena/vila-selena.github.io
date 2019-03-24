@@ -8,25 +8,42 @@ function initMap() {
         controlUI.style.cursor = 'pointer';
         controlUI.style.width = '80px';
         controlUI.style.marginLeft = '20px';
-        controlUI.title = 'Satellite';
+        // controlUI.title = 'Satellite';
+        controlUI.title = 'Street map';
         controlDiv.appendChild(controlUI);
 
         // control interior
         var controlPic = document.createElement('img');
-        controlPic.src = '/images/map-satelit.jpg';
+        // controlPic.src = '/images/map-satelit.jpg';
+        controlPic.src = '/images/map-street.jpg';  
         controlPic.style.width = '100%';
         controlPic.style.margin = '0px';
         controlUI.appendChild(controlPic);
 
+        var l = {};
+        var c = {};
+        
         // event
         controlUI.addEventListener('click', function() {
             var mt = map.getMapTypeId();
             if (mt == 'roadmap') {
+                l = m10m.getLabel();
+                l.color = BELA;
+                m10m.setLabel(l);
+                c.strokeColor = BELA;
+                c.fillColor = BELA;
+                c10m.setOptions(c);
                 controlUI.title = 'Street map';
                 controlPic.src = '/images/map-street.jpg';  
                 map.setMapTypeId(google.maps.MapTypeId.SATELLITE);
             }
             else if (mt == 'satellite') {
+                l = m10m.getLabel();
+                l.color = RDECA;
+                m10m.setLabel(l);
+                c.strokeColor = RDECA;
+                c.fillColor = RDECA;
+                c10m.setOptions(c);
                 controlUI.title = 'Satellite map';
                 controlPic.src = '/images/map-satelit.jpg';  
                 map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
@@ -144,22 +161,24 @@ function initMap() {
         return p;
     }
 
-    const TEMNOZELENA = '#004F46';
-    const TEMNORDECA = '#783226';
-    const ZLATA = '#C5A46D';
+//    const TEMNOZELENA = '#004F46';
+//    const TEMNORDECA = '#783226';
+    const ZELENA = '#4E6900';
+    const RDECA = '#961F1B';
+    const BELA = '#FFFFFF';
     
     // icon common 
     var myIcon = {
         scale: 1,
-        fillColor: TEMNOZELENA, //TEMNORDECA,
-        fillOpacity: 0.4,
-        strokeColor: TEMNOZELENA, //TEMNORDECA,
+        fillColor: RDECA,
+        fillOpacity: 0.6,
+        strokeColor: RDECA,
         strokeWeight: 2,
     };
 
     // label common 
     var myLabel = {
-        color: TEMNORDECA, //TEMNOZELENA,
+        color: BELA, //ZELENA,
         fontFamily: 'Palanquin, sans-serif',
         fontSize: '18px',
         fontWeight: 'bold',
@@ -211,7 +230,6 @@ function initMap() {
 
 // start of initMap    
     var vilaSelena = {lat: 46.056812, lng: 14.503735};
-//    var mapCenter = {lat: 46.055, lng: 14.507};
     var mapCenter = vilaSelena;
     
     var map = new google.maps.Map(document.getElementById('map'), {
@@ -237,10 +255,10 @@ function initMap() {
     var mSelena = setMarker('Vila Selena', 100, 0, vilaSelena, map);
     
     var c10m = new google.maps.Circle({
-        strokeColor: '#783226',  
+        strokeColor: BELA, //RDECA, 
         strokeOpacity: 1.0,
         strokeWeight: 1,
-        fillColor: '#783226',
+        fillColor: BELA, //RDECA, 
         fillOpacity: 0.0,
         map: map,
         center:  vilaSelena,
@@ -251,7 +269,7 @@ function initMap() {
         position: {lat: 46.0506, lng: 14.5036},
         map: map,
         label: {
-            color: '#783226',
+            color: BELA, //RDECA, 
             fontFamily: 'Palanquin, sans-serif',
             fontSize: '18px',
             fontWeight: 'bold',
@@ -305,6 +323,12 @@ function initMap() {
         else {
             c10m.setVisible(true);
             m10m.setVisible(true);
+        }
+        if (z < 9) {
+            mAirport.setVisible(false);
+        }
+        else {
+            mAirport.setVisible(true);
         }
     });
     
@@ -363,7 +387,7 @@ function initMap() {
     var mtControl = new MapTypeControl(mtControlDiv, map);
     mtControlDiv.index = 1;
     map.controls[google.maps.ControlPosition.LEFT_BOTTOM].push(mtControlDiv);
-    
+    map.setMapTypeId(google.maps.MapTypeId.SATELLITE);    
 } // initMap
 
 google.maps.event.addDomListener(window, 'load', initMap);

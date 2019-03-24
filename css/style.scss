@@ -31,46 +31,260 @@
 }
 
 
-// header and footer sizes
-$rsmm-nav-margin:       20px;
-$rsmm-nav1-height:      60px;
-$rsmm-nav1-height-xs:   100px;
-$rsmm-nav2-height:      40px;
-$rsmm-nav2-height-xs:   50px;
-$rsmm-footer-height:    60px;
-$rsmm-footer-height-xs: 90px;
-$rsmm-min-width:        360px;
+// barve
+$ZELENA:    #4E6900;
+$RDECA:     #961F1B;
+$BELA:      #FFFFFF;
+$CRNA:      #000000;
 
-@import 'rsmmVariables';
-@import 'bootstrap';
-@import 'headfoot';
 
-// local pages settings 
-@import 'local';
+// navigation
+$top-height:        90px;
+$bottom-height:     60px;
+$left-width:        240px;
+$body-min-width:    500px;
 
-// banner panorama
-@import 'magnific-popup';
 
-// socials
-@import 'jssocials';
-@import 'jssocials-theme-plain';
-#social-share  { 
-//    position: relative;
-//    top: -20px;
-//    margin-bottom: -20px;
-    i {
-        color: $TEMNOZELENA;
-    }
-    .jssocials-share-link { 
-        border: 0; 
-        padding-left: 5px;
-        padding-right: 5px;
-        font-size: 14px;
-    }    
-    .jssocials-share-email {
-        .jssocials-share-link {
-            padding-right: 0;
+.w3-top {
+    min-width: $body-min-width;
+    color: $ZELENA;
+    background-color: $BELA;
+    font-family: Palanquin;
+    font-size: 18px;
+    a {
+        text-decoration: none;
+        &:hover {
+            color: $RDECA;
+            background-color: inherit;
         }
+    }
+} // w3-top
+
+
+.w3-bottom {
+    min-width: $body-min-width;
+    background-color: $BELA;
+    .jssocials-shares {
+        margin-top: 12px;
+    }
+    i {
+        color: $ZELENA;
+        &:hover {
+            color: $RDECA;
+            background-color: inherit;
+        }
+    }
+} // w3-bottom
+
+
+.w3-sidebar {
+    width: $left-width;
+    padding-top: $top-height;
+
+    color: $ZELENA;
+    font-family: ArsenalBold;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    a {
+        text-decoration: none;
+        &:hover {
+            color: $RDECA;
+            background-color: inherit;
+        }
+    }
+
+    a.active {
+        color: $RDECA;
+    }
+    
+    img {
+        width: 60%;
+        margin-left: 24px;
+        margin-bottom: 12px;
+    }
+} // w3-sidebar
+
+
+.w3-main {
+    margin-left: $left-width;
+    
+    .myContent {
+        padding-top: $top-height;
+        padding-bottom: $bottom-height;
+    }
+    
+} // w3-main
+
+
+// zastave
+$zastave-height: 25px;
+
+#rsmm-zastave {
+    float: right;
+    padding-right: 10px;
+        
+    .rsmm-zastave-icon {
+        color: $RDECA;
+        font-size: 14px;
+        margin: 0px 6px 12px 6px;
+        float: left;
+        height: $zastave-height;
+        line-height: $zastave-height;
+        text-align: center;
+    }
+
+    span {
+        max-width: 24px;
+        display: inline-block;
+        vertical-align: middle;
+        line-height: normal;      
+    }
+
+    .rsmm-zastave-image {
+        height: $zastave-height;
+        width: auto;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        position: relative;
+        top: -$zastave-height + 2px; // popravi+- za vertikalno lego zastavic
+        &:hover {
+            opacity: 0.0;
+        }
+    }
+
+    img {
+        height: 18px;
+        width: auto;
+    }
+} // zastave
+
+
+// general settings
+body {
+    min-width: $body-min-width;
+    
+    h1, h2, h3, h4, h5, h6 {
+        color: $RDECA;
+        text-align: left;
+    }
+
+    p {
+        text-align: justify;
+    }
+    
+    a {
+        text-decoration: none;
+        color: $ZELENA;        
+        &:hover {
+            color: $RDECA;
+        }
+    }
+    
+    img {
+        margin-bottom: 20px;
+    }
+    
+} // body
+
+
+// index
+#rsmm-index {
+    #panorama-banner {
+        margin-bottom: 30px;
+    }
+}
+
+
+// about
+#rsmm-about {
+    .rsmm-container {
+        position: relative;
+        width: 100%;
+    }
+    
+    .rsmm-overlay {
+        position: absolute; 
+        bottom: 20px; 
+        background: rgba($RDECA, 0.5);
+        color: $BELA;
+        width: 100%;
+        transition: .5s ease;
+        opacity:0;
+        font-size: 16px;
+        font-weight: bold;
+        padding: 12px;
+        
+        p {
+            text-align: left;
+            margin: 0px;
+        }
+    }
+
+    .rsmm-container:hover .rsmm-overlay {
+        opacity: 1;
+    }    
+}
+
+
+// apartments
+#rsmm-apartments {
+    .rsmm-one-apartment {
+        border-color: $RDECA;
+        border-style: solid;
+        border-width: 1px;
+        padding: 15px 30px;
+        margin-bottom: 30px;
+        color: $CRNA;
+        
+        &:hover {
+            background-color: lighten($RDECA, 60%);
+        }
+    }
+    
+    img {
+        width: auto;
+        height: auto;
+        max-width: 720px;
+        max-height: 720px;
+    }
+}
+
+
+// location
+#rsmm-location {
+    #map {
+        height: 640px;
+        margin-bottom: 30px;        
+    }
+}
+
+
+// gallery
+#rsmm-gallery {
+    .carousel-caption {
+        left: 30px;
+        padding-bottom: 0px;
+        text-align: left;
+        p {
+            font-size: 20px;
+            margin-bottom: 0px;
+            // text-shadow: none;
+        }
+    }
+    
+    #gallery-popup-container {
+        margin-bottom: 30px;                
+    }
+}
+
+
+// reservation
+#rsmm-reservation {
+    label {
+        color: $ZELENA;
     }
 }
 

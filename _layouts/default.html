@@ -1,25 +1,158 @@
 <!DOCTYPE html>
-<html class="no-js" lang="{{ page.language }}">    
-    <head>
-        {% include google_analytics.html %}
-        {% include head.html %}    
-    </head>
-    <body>
+<html>
+<head>
 
-        <div class="container-fluid">
-            {% include navigation_top.html %}
-            <div class="row">
-                <div class="col-sm-2">
-                    {% include navigation_left.html %}
+    <meta charset="utf-8">
+    <title>{{ page.title }}</title>
+    <meta name="author" content="{{ site.author }}">
+    <meta name="description" content="Apartments Vila Selena">
+
+    <meta name="keywords" 
+        content="apartments">
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    
+    
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.jssocials/1.4.0/jssocials.css" />
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.jssocials/1.4.0/jssocials-theme-minima.css" />
+
+    <link rel="stylesheet" href="/css/magnific-popup.css">
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+
+    <div class="w3-top w3-container">
+        <div class="w3-bar">
+            <button class="w3-button w3-xlarge w3-hide-large w3-padding-large" onclick="w3_open()">
+                <i class="fa fa-bars w3-xlarge"></i>
+            </button>
+
+            <div class="w3-right">
+                <div class="w3-bar-item">
+                    <i class="fa fa-phone w3-large"></i>
+                    <a href="tel:+38611231212"> +386 1 123 12 12</a>
                 </div>
-                <div class="col-sm-10">
-                    {{ content }}
+
+                <div class="w3-bar-item">
+                    <i class="fa fa-envelope w3-large"></i>
+                    <script type="text/javascript">eval(unescape("%6e%68%75%64%68%37%36%3d%5b%27%25%36%39%25%36%65%25%36%36%25%36%66%27%2c%5b%27%25%37%33%25%36%39%27%2c%27%25%37%36%25%36%39%25%36%63%25%36%31%25%32%64%25%37%33%25%36%35%25%36%63%25%36%35%25%36%65%25%36%31%27%5d%2e%72%65%76%65%72%73%65%28%29%2e%6a%6f%69%6e%28%27%2e%27%29%5d%2e%6a%6f%69%6e%28%27%40%27%29%3b%76%77%6d%6a%66%35%35%3d%27%69%6e%66%6f%40%76%69%6c%61%2d%73%65%6c%65%6e%61%2e%73%69%27%3b%64%6f%63%75%6d%65%6e%74%2e%77%72%69%74%65%28%76%77%6d%6a%66%35%35%2e%6c%69%6e%6b%28%27%6d%61%69%27%2b%27%6c%74%6f%3a%27%2b%6e%68%75%64%68%37%36%29%29%3b"));</script>
                 </div>
-            </div>
+
+                <br>
+
+                <div class="" id="rsmm-zastave">
+
+                    <div class="navbar-text rsmm-zastave-icon">
+                        <span>SI</span>
+                        <div class="rsmm-zastave-image">
+                            <a href="/si/">
+                                <img alt="SI" src="/images/flags/SI.png">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="navbar-text rsmm-zastave-icon">
+                        <span>EN</span>
+                        <div class="rsmm-zastave-image">
+                            <a href="/en/">
+                                <img alt="EN" src="/images/flags/EN.png">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="navbar-text rsmm-zastave-icon">
+                        <span>DE</span>
+                        <div class="rsmm-zastave-image">
+                            <a href="/de/">
+                                <img alt="DE" src="/images/flags/DE.png">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="navbar-text rsmm-zastave-icon">
+                        <span>IT</span>
+                        <div class="rsmm-zastave-image">
+                            <a href="/it/">
+                                <img alt="IT" src="/images/flags/IT.png">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="navbar-text rsmm-zastave-icon">
+                        <span>FR</span>
+                        <div class="rsmm-zastave-image">
+                            <a href="/fr/">
+                                <img alt="FR" src="/images/flags/FR.png">
+                            </a>
+                        </div>
+                    </div>
+                    
+                </div> <!-- rsmm-zastave -->
+                
+            </div> <!-- w3-container w3-right -->
+
         </div>
+    </div> <!-- w3-top -->
 
-        {% include footer.html %}
-        {% include cookieconsent.html %}
-    </body>
-</html>
+    <div class="w3-bottom w3-container">
+        <div class="w3-right w3-container">            
+            <span id="socials"></span>    
+        </div>
+    </div> <!-- w3-bottom -->
+
+    <div class="w3-sidebar w3-bar-block w3-collapse w3-animate-left" id="mySidebar">
+        <button class="w3-bar-item w3-button w3-xlarge w3-hide-large w3-padding-large" onclick="w3_close()">
+            <i class="fa fa-close w3-large"></i>
+        </button>
+
+        {% if page.nav == 'index' %}
+            {% assign active = 'brand-active' %}
+        {% else %}
+            {% assign active = '' %}
+        {% endif %}
+
+        <a href="/{{ page.language }}/">
+            <img src="/images/logo.jpg" alt="Vila Selena">
+        </a>
+
+        {% assign navlang = 'navigation_' | append: page.language %}
+
+        {% for node in site.data[navlang] %}
+
+            {% if page.nav == node.nav %}
+                {% assign active = 'active' %}
+            {% else %}
+                {% assign active = '' %}
+            {% endif %}
+
+            <a href="{{ site.url }}{{ node.href }}" class="w3-bar-item w3-padding-large {{ active }}">{{ node.title }}</a>
+
+        {% endfor %}
+        
+    </div> <!-- w3-sidebar -->
+
+    <div class="w3-main">
+        <div class="w3-container myContent">
+            {{ content }}
+        </div>        
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    
+    <script src="/js/spritespin.js"></script>    
+    <script src="/js/magnificpopup.js"></script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.jssocials/1.4.0/jssocials.min.js"></script>
+
+    <script src="/js/main.js"></script>
+
+    {% include cookieconsent.html %}    
+</body>
+</html> 
+
 

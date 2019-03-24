@@ -1,3 +1,11 @@
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+}
+
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+}
+
 $(document).ready(function(){
 
     // panorama on 1st page
@@ -87,9 +95,9 @@ $(document).ready(function(){
     }
     
     // socials icons in footer
-    $("#social-share").jsSocials({
+    $("#socials").jsSocials({
         showLabel: false,
         showCount: false,
-        shares: ["twitter", "facebook", "linkedin", "pinterest", "stumbleupon"]
+        shares: ["twitter", "facebook", "email", "linkedin", "pinterest", "stumbleupon", "whatsapp"]
     });
 });
