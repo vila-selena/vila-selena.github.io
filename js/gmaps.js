@@ -91,7 +91,7 @@ function initMap() {
         const b = +height / 2;
         const h = height;
         const px = -1*h, py = t-1.5*h;
-        const dx = 6, dy = 4;
+        const dx = 6, dy = 6; // dy = 4;
 
         const px1 = px+dx, py1 = py-dy;
         const px2 = px+3*dx, py2 = py-3*dy;
@@ -209,7 +209,7 @@ function initMap() {
     function setMarker(text, width, lr, position, map) {
 
         var mIcon = myIcon;
-        const my = height/2 + repy;
+        const my = height/2 + repy + 2; // +2 move text up 2 px
         const mx = -repx * lr;
         mIcon.labelOrigin = new google.maps.Point(mx,-my);
         mIcon.path = pathMarker2(width,lr);
