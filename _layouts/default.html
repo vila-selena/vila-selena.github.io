@@ -130,7 +130,7 @@
                 {% assign active = '' %}
             {% endif %}
 
-            <a href="{{ site.url }}{{ node.href }}" class="w3-bar-item w3-padding-large {{ active }}">{{ node.title }}</a>
+            <a href="{{ site.url }}{{ node.href }}" class="w3-bar-item {{ active }}">{{ node.title }}</a>
 
         {% endfor %}
         

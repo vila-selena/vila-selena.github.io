@@ -3,8 +3,15 @@
 
 // load fonts 
 @font-face {
-    font-family: 'Palanquin';
-    src: url('/fonts/palanquin-regular.ttf') format('truetype');
+    font-family: 'Raleway';
+    src: url('/fonts/raleway-regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Allura';
+    src: url('/fonts/allura-regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -16,27 +23,13 @@
     font-style: normal;
 }
 
-@font-face {
-    font-family: 'ArsenalBoldItalic';
-    src: url('/fonts/arsenal-bolditalic.ttf') format('truetype');
-    font-weight: bold;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'Tangerine';
-    src: url('/fonts/tangerine-regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
 
 // barve
-$ZELENA:    #4E6900;
+$ZELENA:    #A28142;    // to je v bistvu temno rumena
 $RDECA:     #961F1B;
 $BELA:      #FFFFFF;
 $CRNA:      #000000;
-
+$RUMENA:    #F7D895;
 
 // navigation
 $top-height:        90px;
@@ -45,12 +38,49 @@ $left-width:        240px;
 $body-min-width:    500px;
 
 
+// general settings
+body {
+    min-width: $body-min-width;
+
+    font-family: Raleway;
+    
+    h4 {
+        font-family: Allura;
+        font-size: 30px;
+        color: $RDECA;
+        text-align: left;
+    }
+    
+    i.fa-circle-thin {
+        font-size: 8px;
+        top: 8px;
+    }
+
+    p {
+        text-align: justify;
+    }
+    
+    a {
+        text-decoration: none;
+        color: $ZELENA;        
+        &:hover {
+            color: $RDECA;
+        }
+    }
+    
+    img {
+        margin-bottom: 20px;
+    }
+    
+} // body
+
+
 .w3-top {
     min-width: $body-min-width;
     color: $ZELENA;
     background-color: $BELA;
-    font-family: Palanquin;
-    font-size: 18px;
+    font-family: Raleway;
+    font-size: 15px;
     a {
         text-decoration: none;
         &:hover {
@@ -79,7 +109,7 @@ $body-min-width:    500px;
 
 .w3-sidebar {
     width: $left-width;
-    padding-top: $top-height;
+    padding-top: 32px; //$top-height;
 
     color: $ZELENA;
     font-family: ArsenalBold;
@@ -101,7 +131,7 @@ $body-min-width:    500px;
     
     img {
         width: 60%;
-        margin-left: 24px;
+        margin-left: 16px;
         margin-bottom: 12px;
     }
 } // w3-sidebar
@@ -162,34 +192,6 @@ $zastave-height: 25px;
 } // zastave
 
 
-// general settings
-body {
-    min-width: $body-min-width;
-    
-    h1, h2, h3, h4, h5, h6 {
-        color: $RDECA;
-        text-align: left;
-    }
-
-    p {
-        text-align: justify;
-    }
-    
-    a {
-        text-decoration: none;
-        color: $ZELENA;        
-        &:hover {
-            color: $RDECA;
-        }
-    }
-    
-    img {
-        margin-bottom: 20px;
-    }
-    
-} // body
-
-
 // index
 #rsmm-index {
     #panorama-banner {
@@ -208,13 +210,12 @@ body {
     .rsmm-overlay {
         position: absolute; 
         bottom: 20px; 
-        background: rgba($RDECA, 0.5);
-        color: $BELA;
+        background: rgba($RUMENA, 0.8);
+        color: $CRNA;
         width: 100%;
         transition: .5s ease;
         opacity:0;
         font-size: 16px;
-        font-weight: bold;
         padding: 12px;
         
         p {
@@ -231,8 +232,15 @@ body {
 
 // apartments
 #rsmm-apartments {
+    h4 {
+        color: $RDECA;
+        font-family: ArsenalBold;
+        font-size: 18px;
+        font-weight: bold;
+    }
+    
     .rsmm-one-apartment {
-        border-color: $RDECA;
+        border-color: $CRNA;
         border-style: solid;
         border-width: 1px;
         padding: 15px 30px;
@@ -240,7 +248,7 @@ body {
         color: $CRNA;
         
         &:hover {
-            background-color: lighten($RDECA, 60%);
+            background-color: lighten($RUMENA, 8%);
         }
     }
     

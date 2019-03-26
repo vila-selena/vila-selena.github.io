@@ -1,4 +1,11 @@
 function initMap() {
+    // colors
+    const ZELENA = '#4E6900';
+    const RDECA = '#961F1B';
+    const BELA = '#FFFFFF';
+    const CRNA = '#000000';
+    const RUMENA = '#FEE3AB';
+
 
     // control to toggle streen vs satelite
     function MapTypeControl(controlDiv, map) {
@@ -28,10 +35,10 @@ function initMap() {
             var mt = map.getMapTypeId();
             if (mt == 'roadmap') {
                 l = m10m.getLabel();
-                l.color = BELA;
+                l.color = RUMENA;
                 m10m.setLabel(l);
-                c.strokeColor = BELA;
-                c.fillColor = BELA;
+                c.strokeColor = RUMENA;
+                c.fillColor = RUMENA;
                 c10m.setOptions(c);
                 controlUI.title = 'Street map';
                 controlPic.src = '/images/map-street.jpg';  
@@ -39,25 +46,51 @@ function initMap() {
             }
             else if (mt == 'satellite') {
                 l = m10m.getLabel();
-                l.color = RDECA;
+                l.color = CRNA;
                 m10m.setLabel(l);
-                c.strokeColor = RDECA;
-                c.fillColor = RDECA;
+                c.strokeColor = CRNA;
+                c.fillColor = CRNA;
                 c10m.setOptions(c);
                 controlUI.title = 'Satellite map';
                 controlPic.src = '/images/map-satelit.jpg';  
                 map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
             };
         });
-    }
+    } // function MapTypeControl
+
 
     // common for all markers
     const height = 26;      // height
-    const repy = 24;        // rep height
-    const repx = 12;        // rep x minus: left, plus: right
-    const repd = 12;        // rep x delta on bottom line
+    const repy = 18;        // rep height
+    const repx = 6;        // rep x minus: left, plus: right
+    const repd = 6;        // rep x delta on bottom line
 
     // strait path for pointer
+    function pathPointer1(width) {
+        const l = -width/2;
+        const r = +width/2;
+        const t = -height/2;
+        const b = +height/2;
+        const h = height;
+        const px = -2*h, py = t-3*h;
+        const dx = 2.4, dy = 1.8;
+
+        var p = '';
+        p += 'M '+ (px+dx)   +' '+ (py-dy)    +' ';
+        p += 'L '+ (dx+dy)   +' '+ (t)        +' ';
+        p += 'L '+ (r)       +' '+ (t)        +' ';
+        p += 'L '+ (r)       +' '+ (b)        +' ';
+        p += 'L '+ (l)       +' '+ (b)        +' ';
+        p += 'L '+ (l)       +' '+ (t)        +' ';
+        p += 'L '+ (-dx-dy)  +' '+ (t)        +' ';
+        p += 'L '+ (px-dx)   +' '+ (py+dy)    +' ';
+        p += 'L '+ (px-3*dx) +' '+ (py+3*dy)  +' ';
+        p += 'L '+ (px-3*dx) +' '+ (py-6*dy)  +' ';
+        p += 'L '+ (px+3*dx) +' '+ (py-3*dy)  +' ';
+        p += 'L '+ (px+dx)   +' '+ (py-dy)    +' ';
+        return p;
+    }
+    /*
     function pathPointer1(width) {
         const l = -width/2;
         const r = +width/2;
@@ -82,7 +115,8 @@ function initMap() {
         p += 'L '+ (px+dx)   +' '+ (py-dy)    +' ';
         return p;
     }
-    
+    */
+   
     // rounded path for pointer
     function pathPointer2(width) {
         const l = -width / 2 + height / 2;
@@ -161,26 +195,21 @@ function initMap() {
         return p;
     }
 
-//    const TEMNOZELENA = '#004F46';
-//    const TEMNORDECA = '#783226';
-    const ZELENA = '#4E6900';
-    const RDECA = '#961F1B';
-    const BELA = '#FFFFFF';
     
     // icon common 
     var myIcon = {
         scale: 1,
-        fillColor: RDECA,
+        fillColor: RUMENA,
         fillOpacity: 0.6,
-        strokeColor: RDECA,
+        strokeColor: CRNA,
         strokeWeight: 2,
     };
 
     // label common 
     var myLabel = {
-        color: BELA, //ZELENA,
-        fontFamily: 'Palanquin, sans-serif',
-        fontSize: '18px',
+        color: CRNA, 
+        fontFamily: 'ArsenalBold, sans-serif',
+        fontSize: '16px',
         fontWeight: 'bold',
     };
 
@@ -189,7 +218,7 @@ function initMap() {
 
         var pIcon = myIcon;
         pIcon.labelOrigin = new google.maps.Point(0,0);
-        pIcon.path = pathPointer2(width);
+        pIcon.path = pathPointer1(width);
 
         pLabel = myLabel;
         pLabel.text = text;
@@ -212,7 +241,7 @@ function initMap() {
         const my = height/2 + repy + 2; // +2 move text up 2 px
         const mx = -repx * lr;
         mIcon.labelOrigin = new google.maps.Point(mx,-my);
-        mIcon.path = pathMarker2(width,lr);
+        mIcon.path = pathMarker1(width,lr);
 
         mLabel = myLabel;
         mLabel.text = text;
@@ -252,13 +281,13 @@ function initMap() {
         ],
     });
 
-    var mSelena = setMarker('Vila Selena', 100, 0, vilaSelena, map);
+    var mSelena = setMarker('VILA SELENA', 110, 0, vilaSelena, map);
     
     var c10m = new google.maps.Circle({
-        strokeColor: BELA, //RDECA, 
+        strokeColor: RUMENA,
         strokeOpacity: 1.0,
         strokeWeight: 1,
-        fillColor: BELA, //RDECA, 
+        fillColor: RUMENA,
         fillOpacity: 0.0,
         map: map,
         center:  vilaSelena,
@@ -266,14 +295,14 @@ function initMap() {
         clickable: false,
     });
     var m10m = new google.maps.Marker({
-        position: {lat: 46.0506, lng: 14.5036},
+        position: {lat: 46.0622, lng: 14.5036},
         map: map,
         label: {
-            color: BELA, //RDECA, 
-            fontFamily: 'Palanquin, sans-serif',
-            fontSize: '18px',
+            color: RUMENA, 
+            fontFamily: 'ArsenalBold, sans-serif',
+            fontSize: '16px',
             fontWeight: 'bold',
-            text: '10 min hoje',
+            text: '10 MIN HOJE',
         },
         icon: {
             path: 'M 0,0',
@@ -284,16 +313,16 @@ function initMap() {
         clickable: false,
     });
 
-    var mBusRail = setMarker('Avtobusna in železniška postaja', 260, -1,  {lat: 46.058525, lng: 14.511328}, map); 
-    var mTivoli = setMarker('Park Tivoli', 90, +1, {lat: 46.056134, lng: 14.496694}, map);
-    var mTromost = setMarker('Tromostovje', 110, +1, {lat: 46.051016, lng: 14.506297}, map);
-    var mZmaj = setMarker('Zmajski most', 115, -1, {lat: 46.052098, lng: 14.510292}, map);
-    var mGrad = setMarker('Ljubljanski grad', 135, -1, {lat: 46.048919, lng: 14.508608}, map);
+    var mBusRail = setMarker('AVTOBUSNA IN ŽELEZNIšKA POSTAJA', 270, -1,  {lat: 46.058525, lng: 14.511328}, map); 
+    var mTivoli = setMarker('PARK TIVOLI', 100, +1, {lat: 46.056134, lng: 14.496694}, map);
+    var mTromost = setMarker('TROMOSTOVJE', 110, +1, {lat: 46.051016, lng: 14.506297}, map);
+    var mZmaj = setMarker('ZMAJSKI MOST', 115, -1, {lat: 46.052098, lng: 14.510292}, map);
+    var mGrad = setMarker('LJUBLJANSKI GRAD', 145, -1, {lat: 46.048919, lng: 14.508608}, map);
 
     // to airpport 
 //    var mAirp22 = setPointer('Letališče Jožeta Pučnika (22km)', 260, {lat: 46.058994, lng: 14.498985}, map); 
-    var mAirp22 = setPointer('Letališče Jožeta Pučnika (22km)', 260, {lat: 46.0595, lng: 14.4983}, map); 
-    var mAirport = setMarker('Letališče Jožeta Pučnika', 210, 0, {lat: 46.233116, lng: 14.453966}, map);
+    var mAirp22 = setPointer('LETALIŠČE JOŽETA PUČNIKA (22km)', 260, {lat: 46.0595, lng: 14.4983}, map); 
+    var mAirport = setMarker('LETALIŠČE JOŽETA PUČNIKA', 210, 0, {lat: 46.233116, lng: 14.453966}, map);
 
     // click actions
     var mZoom = 15; // zoom to hide/show markers
