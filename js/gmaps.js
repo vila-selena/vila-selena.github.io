@@ -258,8 +258,9 @@ function initMap() {
     } 
 
 // start of initMap    
-    var vilaSelena = {lat: 46.056812, lng: 14.503735};
-    var mapCenter = vilaSelena;
+//    var vilaSelena = {lat: 46.056812, lng: 14.503735};
+    var vilaSelena = {lat: 46.056930, lng: 14.503735};
+    var mapCenter =  {lat: 46.056812, lng: 14.503735};
     
     var map = new google.maps.Map(document.getElementById('map'), {
         center:  mapCenter,
@@ -295,14 +296,14 @@ function initMap() {
         clickable: false,
     });
     var m10m = new google.maps.Marker({
-        position: {lat: 46.0622, lng: 14.5036},
+        position: {lat: 46.0624, lng: 14.5036},
         map: map,
         label: {
             color: RUMENA, 
             fontFamily: 'ArsenalBold, sans-serif',
             fontSize: '16px',
             fontWeight: 'bold',
-            text: '10 MIN HOJE',
+            text: '10 MIN',
         },
         icon: {
             path: 'M 0,0',
