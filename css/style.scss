@@ -35,7 +35,10 @@ $RUMENA:    #F7D895;
 $top-height:        90px;
 $bottom-height:     60px;
 $left-width:        240px;
-$body-min-width:    500px;
+$body-min-width:    300px;
+
+$small-screen:      620px;
+$th-small-screen:   150px;
 
 
 // general settings
@@ -81,11 +84,19 @@ body {
     background-color: $BELA;
     font-family: Raleway;
     font-size: 15px;
-    a {
+    
+    a, button {
         text-decoration: none;
         &:hover {
             color: $RDECA;
-            background-color: inherit;
+            background-color: rgba(255,255,255,0)!important;
+        }
+    }
+    
+    #logo-top {
+        img {
+            width: 200px;
+            // margin-top: 12px;
         }
     }
 } // w3-top
@@ -117,14 +128,14 @@ body {
     font-weight: bold;
     text-transform: uppercase;
 
-    a {
+    a, button {
         text-decoration: none;
         &:hover {
             color: $RDECA;
-            background-color: inherit;
+            background-color: rgba(255,255,255,0)!important;
         }
     }
-
+    
     a.active {
         color: $RDECA;
     }
@@ -144,9 +155,15 @@ body {
         padding-top: $top-height;
         padding-bottom: $bottom-height;
     }
-    
 } // w3-main
 
+@media screen and (max-width: $small-screen) {
+    .w3-main {
+        .myContent {
+            padding-top: $th-small-screen;
+        }
+    } // w3-main
+}
 
 // zastave
 $zastave-height: 25px;
@@ -239,6 +256,10 @@ $zastave-height: 25px;
         font-size: 18px;
         font-weight: bold;
     }
+
+    p {
+        text-align: left;
+    }
     
     .rsmm-one-apartment {
         border-color: $CRNA;
@@ -255,7 +276,7 @@ $zastave-height: 25px;
     
     img {
         width: auto;
-        height: auto;
+        // height: auto;
         max-width: 720px;
         max-height: 720px;
     }

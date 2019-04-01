@@ -10,12 +10,20 @@
 
         gtag('config', 'UA-135084835-1');
     </script>
+
+    <link rel="icon" type="image/ico" href="/images/icon.jpg" />
     
     <meta charset="utf-8">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>{{ page.title }}</title>
     <meta name="author" content="{{ site.author }}">
     <meta name="description" content="Apartments Vila Selena">
 
+    <meta name="description" content="Apartmaji Vila Selena">
+    
     <meta name="keywords" 
         content="Vila Selena Ljubljana Slovenija apartments apartmaji">
 
@@ -36,11 +44,21 @@
 <body>
 
     <div class="w3-top w3-container">
+        <div>
+            <a href="/{{ page.language }}/" class="w3-hide-large w3-hide-medium" id="logo-top">
+                <img src="/images/logo-top.jpg" alt="Vila Selena">
+            </a>
+        </div>
+        
         <div class="w3-bar">
-            <button class="w3-button w3-xlarge w3-hide-large w3-padding-large" onclick="w3_open()">
+            <button class="w3-button w3-xlarge w3-hide-large w3-padding" onclick="w3_open()">
                 <i class="fa fa-bars w3-xlarge"></i>
             </button>
 
+            <a href="/{{ page.language }}/" class="w3-hide-large w3-hide-small" id="logo-top">
+                <img src="/images/logo-top.jpg" alt="Vila Selena">
+            </a>
+            
             <div class="w3-right">
                 <div class="w3-bar-item">
                     <i class="fa fa-phone w3-large"></i>
@@ -128,7 +146,7 @@
         {% endif %}
 
         <a href="/{{ page.language }}/">
-            <img src="/images/logo.jpg" alt="Vila Selena">
+            <img src="/images/logo.jpg" alt="Vila Selena" class="w3-hide-medium w3-hide-small">
         </a>
 
         {% assign navlang = 'navigation_' | append: page.language %}
