@@ -265,12 +265,17 @@ $zastave-height: 25px;
         border-color: $CRNA;
         border-style: solid;
         border-width: 1px;
-        padding: 15px 30px;
-        margin-bottom: 30px;
+        margin-bottom: 16px;
         color: $CRNA;
+        font-weight: bold;
         
-        &:hover {
-            background-color: lighten($RUMENA, 8%);
+        img {
+            width:100%;
+            margin: 0;
+
+            &:hover {
+                opacity: 0.4;
+            }
         }
     }
     
@@ -279,6 +284,34 @@ $zastave-height: 25px;
         // height: auto;
         max-width: 720px;
         max-height: 720px;
+    }
+}
+
+
+// apartment details
+#apartment-popup-container {
+    img {
+        border-color: $CRNA;
+        border-style: solid;
+        border-width: 1px;
+        max-height: 240px;
+        &:hover {
+            opacity: 0.5;
+        }
+    }
+
+    .carousel-caption {
+        left: 30px;
+        padding-bottom: 0px;
+        text-align: left;
+        p {
+            font-size: 20px;
+            margin-bottom: 0px;
+        }
+    }
+    
+    #gallery-popup-container {
+        margin-bottom: 30px;                
     }
 }
 
@@ -295,6 +328,15 @@ $zastave-height: 25px;
 
 // gallery
 #rsmm-gallery {
+    img {
+        border-color: $CRNA;
+        border-style: solid;
+        border-width: 1px;
+        &:hover {
+            opacity: 0.5;
+        }
+    }
+
     .carousel-caption {
         left: 30px;
         padding-bottom: 0px;
@@ -302,7 +344,6 @@ $zastave-height: 25px;
         p {
             font-size: 20px;
             margin-bottom: 0px;
-            // text-shadow: none;
         }
     }
     

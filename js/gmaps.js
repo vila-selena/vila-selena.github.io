@@ -282,7 +282,8 @@ function initMap() {
         ],
     });
 
-    var mSelena = setMarker('VILA SELENA', 110, 0, vilaSelena, map);
+//    var mSelena = setMarker('VILA SELENA', 110, 0, vilaSelena, map);
+    var mSelena = setMarker(gmLang.mSelena, 110, 0, vilaSelena, map);
     
     var c10m = new google.maps.Circle({
         strokeColor: RUMENA,
@@ -314,16 +315,20 @@ function initMap() {
         clickable: false,
     });
 
-    var mBusRail = setMarker('AVTOBUSNA IN ŽELEZNIšKA POSTAJA', 270, -1,  {lat: 46.058525, lng: 14.511328}, map); 
-    var mTivoli = setMarker('PARK TIVOLI', 100, +1, {lat: 46.056134, lng: 14.496694}, map);
-    var mTromost = setMarker('TROMOSTOVJE', 110, +1, {lat: 46.051016, lng: 14.506297}, map);
-    var mZmaj = setMarker('ZMAJSKI MOST', 115, -1, {lat: 46.052098, lng: 14.510292}, map);
-    var mGrad = setMarker('LJUBLJANSKI GRAD', 145, -1, {lat: 46.048919, lng: 14.508608}, map);
-
-    // to airpport 
-//    var mAirp22 = setPointer('Letališče Jožeta Pučnika (22km)', 260, {lat: 46.058994, lng: 14.498985}, map); 
-    var mAirp22 = setPointer('LETALIŠČE JOŽETA PUČNIKA (22km)', 260, {lat: 46.0595, lng: 14.4983}, map); 
-    var mAirport = setMarker('LETALIŠČE JOŽETA PUČNIKA', 210, 0, {lat: 46.233116, lng: 14.453966}, map);
+//    var mBusRail = setMarker('AVTOBUSNA IN ŽELEZNIšKA POSTAJA', 270, -1,  {lat: 46.058525, lng: 14.511328}, map); 
+    var mBusRail = setMarker(gmLang.mBusRail, 270, -1,  {lat: 46.058525, lng: 14.511328}, map); 
+//    var mTivoli = setMarker('PARK TIVOLI', 100, +1, {lat: 46.056134, lng: 14.496694}, map);
+    var mTivoli = setMarker(gmLang.mTivoli, 100, +1, {lat: 46.056134, lng: 14.496694}, map);
+//    var mTromost = setMarker('TROMOSTOVJE', 110, +1, {lat: 46.051016, lng: 14.506297}, map);
+    var mTromost = setMarker(gmLang.mTromost, 110, +1, {lat: 46.051016, lng: 14.506297}, map);
+//    var mZmaj = setMarker('ZMAJSKI MOST', 115, -1, {lat: 46.052098, lng: 14.510292}, map);
+    var mZmaj = setMarker(gmLang.mZmaj, 125, -1, {lat: 46.052098, lng: 14.510292}, map);
+//    var mGrad = setMarker('LJUBLJANSKI GRAD', 145, -1, {lat: 46.048919, lng: 14.508608}, map);
+    var mGrad = setMarker(gmLang.mGrad, 150, -1, {lat: 46.048919, lng: 14.508608}, map);
+//    var mAirp22 = setPointer('LETALIŠČE JOŽETA PUČNIKA (22km)', 260, {lat: 46.0595, lng: 14.4983}, map); 
+    var mAirp22 = setPointer(gmLang.mAirp22, 260, {lat: 46.0595, lng: 14.4983}, map); 
+//    var mAirport = setMarker('LETALIŠČE JOŽETA PUČNIKA', 210, 0, {lat: 46.233116, lng: 14.453966}, map);
+    var mAirport = setMarker(gmLang.mAirport, 210, 0, {lat: 46.233116, lng: 14.453966}, map);
 
     // click actions
     var mZoom = 15; // zoom to hide/show markers
@@ -382,33 +387,33 @@ function initMap() {
 
     // open new info window for markers
     mAirport.addListener('click', function() {
-        var cLink = 'https://www.fraport-slovenija.si/sl/Main';
-        window.open(cLink, "_blank");
+        // 'https://www.fraport-slovenija.si/sl/Main';
+        window.open(gmLink.mAirport, "_blank");
     });
 
     mBusRail.addListener('click', function() {
-        var cLink = 'https://www.ap-ljubljana.si/';
-        window.open(cLink, "_blank");
+        // 'https://www.ap-ljubljana.si/';
+        window.open(gmLink.mBusRail, "_blank");
     });
  
     mTivoli.addListener('click', function() {
-        var cLink = 'https://www.visitljubljana.com/sl/obiskovalci/aktivnosti/zabava/park-tivoli/';
-        window.open(cLink, "_blank");
+        // 'https://www.visitljubljana.com/sl/obiskovalci/aktivnosti/zabava/park-tivoli/';
+        window.open(gmLink.mTivoli, "_blank");
     });
 
     mTromost.addListener('click', function() {
-        var cLink = 'https://www.visitljubljana.com/sl/obiskovalci/aktivnosti/znamenitosti/tromostovje/';
-        window.open(cLink, "_blank");
+        // 'https://www.visitljubljana.com/sl/obiskovalci/aktivnosti/znamenitosti/tromostovje/';
+        window.open(gmLink.mTromost, "_blank");
     });
 
     mZmaj.addListener('click', function() {
-        var cLink = 'https://www.visitljubljana.com/sl/obiskovalci/aktivnosti/znamenitosti/zmajski-most/';
-        window.open(cLink, "_blank");
+        // 'https://www.visitljubljana.com/sl/obiskovalci/aktivnosti/znamenitosti/zmajski-most/';
+        window.open(gmLink.mZmaj, "_blank");
     });
 
     mGrad.addListener('click', function() {
-        var cLink = 'https://www.ljubljanskigrad.si/sl/ljubljanski-grad/';
-        window.open(cLink, "_blank");
+        // 'https://www.ljubljanskigrad.si/sl/ljubljanski-grad/';
+        window.open(gmLink.mGrad, "_blank");
     });
 
 
@@ -420,4 +425,5 @@ function initMap() {
     map.setMapTypeId(google.maps.MapTypeId.SATELLITE);    
 } // initMap
 
-google.maps.event.addDomListener(window, 'load', initMap);
+// called from each language
+// google.maps.event.addDomListener(window, 'load', initMap);
