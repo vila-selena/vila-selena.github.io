@@ -1,0 +1,25 @@
+# za produkcijo
+host: www.vila-selena.si
+port: 
+destination: _prod
+
+###########
+# site.url, site.title
+
+title: 'Vila Selena'
+author: 'Vila Selena'
+
+markdown: kramdown
+excerpt_separator: <!--more-->
+
+sass:
+  sass_dir: css
+  style:    expanded
+
+exclude:
+- README.md
+
+
+safe: true
+lsi: false
+

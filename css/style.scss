@@ -37,6 +37,7 @@ $bottom-height:     60px;
 $left-width:        240px;
 $body-min-width:    300px;
 
+$medium-screen:     960px;
 $small-screen:      620px;
 $th-small-screen:   150px;
 
@@ -279,22 +280,26 @@ $zastave-height: 25px;
         }
     }
     
-    img {
-        width: auto;
-        // height: auto;
-        max-width: 720px;
-        max-height: 720px;
-    }
+//    img {
+//        width: auto;
+//        max-width: 720px;
+//        max-height: 720px;
+//    }
 }
 
 
 // apartment details
 #apartment-popup-container {
     img {
+        // for grid
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        // end of for grid
         border-color: $CRNA;
         border-style: solid;
         border-width: 1px;
-        max-height: 240px;
+//        max-height: 240px;
         &:hover {
             opacity: 0.5;
         }
@@ -329,6 +334,11 @@ $zastave-height: 25px;
 // gallery
 #rsmm-gallery {
     img {
+        // for grid
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        // end of for grid
         border-color: $CRNA;
         border-style: solid;
         border-width: 1px;
@@ -353,10 +363,44 @@ $zastave-height: 25px;
 }
 
 
+// for gallery and appartments
+.rsmm-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 13vw);
+    grid-gap: 15px;        
+}
+
+.rsmm-grid-item {
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);    
+}
+
+@media screen and (max-width: $medium-screen) {
+    .rsmm-grid {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(6, 21vw);
+    }
+}
+
+@media screen and (max-width: $small-screen) {
+    .rsmm-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(9, 30vw);
+    }
+}
+
+
 // reservation
 #rsmm-reservation {
-    label {
-        color: $ZELENA;
+//    label {
+//        color: $ZELENA;
+//    }
+
+    iframe {
+        width: 100%;
+        height: 5000px;
+        border: none;
     }
+
 }
 
