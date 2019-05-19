@@ -31,6 +31,12 @@ $BELA:      #FFFFFF;
 $CRNA:      #000000;
 $RUMENA:    #F7D895;
 
+// senca za box-shadow: h-offset v-offset blur spread color
+$VSENCA: 0px 0px 6px 0px rgba(0,0,0,0.6), 0px 0px 12px 0px rgba(0,0,0,0.3);
+$MSENCA: 0px 0px 4px 0px rgba(0,0,0,0.6), 0px 0px 8px 0px rgba(0,0,0,0.3);
+// senca za text-shadow: h-offset v-offset blur color
+$TSENCA: 0px 4px 4px rgba(0,0,0,0.4);
+
 // navigation
 $top-height:        90px;
 $bottom-height:     60px;
@@ -128,9 +134,10 @@ body {
     font-size: 18px;
     font-weight: bold;
     text-transform: uppercase;
-
+    
     a, button {
         text-decoration: none;
+        text-shadow: $TSENCA;
         &:hover {
             color: $RDECA;
             background-color: rgba(255,255,255,0)!important;
@@ -145,6 +152,8 @@ body {
         width: 60%;
         margin-left: 16px;
         margin-bottom: 12px;
+        // logo senca
+        // box-shadow: $VSENCA;        
     }
 } // w3-sidebar
 
@@ -229,13 +238,18 @@ $zastave-height: 25px;
     .rsmm-overlay {
         position: absolute; 
         bottom: 20px; 
-        background: rgba($RUMENA, 0.8);
-        color: $CRNA;
         width: 100%;
         transition: .5s ease;
         opacity:0;
-        font-size: 16px;
         padding: 12px;
+
+        background: rgba($BELA, 0.6);
+        color: $RDECA;
+
+        font-family: ArsenalBold;
+        font-size: 18px;
+        font-weight: bold;
+        text-transform: uppercase;
         
         p {
             text-align: left;
@@ -246,6 +260,44 @@ $zastave-height: 25px;
     .rsmm-container:hover .rsmm-overlay {
         opacity: 1;
     }    
+    
+    img {
+        box-shadow: $VSENCA;
+    }
+}
+
+
+// apartments
+#rsmm-apartments-OLD {
+    h4 {
+        color: $RDECA;
+        font-family: ArsenalBold;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    p {
+        text-align: left;
+    }
+    
+    .rsmm-one-apartment {
+//        border-color: $CRNA;
+//        border-style: solid;
+//        border-width: 1px;
+        margin-bottom: 16px;
+        color: $CRNA;
+        font-weight: bold;
+        
+        img {
+            width:100%;
+            margin: 0;
+
+            &:hover {
+                opacity: 0.4;
+            }
+        }
+    }
+    
 }
 
 
@@ -262,29 +314,62 @@ $zastave-height: 25px;
         text-align: left;
     }
     
-    .rsmm-one-apartment {
-        border-color: $CRNA;
-        border-style: solid;
-        border-width: 1px;
-        margin-bottom: 16px;
-        color: $CRNA;
-        font-weight: bold;
-        
-        img {
-            width:100%;
-            margin: 0;
+    .rsmm-container {
+        position: relative;
+    }
 
-            &:hover {
-                opacity: 0.4;
+    img {
+        box-shadow: $VSENCA;        
+    }
+    
+    .rsmm-overlay {
+        position: absolute; 
+        bottom: 20px; 
+        width: 100%;
+        transition: .5s ease;
+        opacity:0;
+        padding: 8px 16px;
+
+        background: rgba($BELA, 0.6);
+        color: $CRNA;
+
+        font-family: ArsenalBold;
+        font-size: 16px;
+        font-weight: bold;
+        text-transform: uppercase;
+        
+        p {
+            text-align: left;
+            margin: 0px;
+            span {
+                text-transform: none;
             }
+        }
+        
+    }
+
+    .rsmm-container:hover .rsmm-overlay {
+        opacity: 1;
+    } 
+    
+    .rsmm-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(6, 12vw);
+        grid-gap: 24px;        
+    }
+
+    .rsmm-grid-item {
+//        box-shadow: $SENCA;
+    }
+
+    @media screen and (max-width: $small-screen) {
+        .rsmm-grid {
+            // grid-template-columns: repeat(1, 1fr);
+            grid-template-rows: repeat(12, 30vw);
         }
     }
     
-//    img {
-//        width: auto;
-//        max-width: 720px;
-//        max-height: 720px;
-//    }
 }
 
 
@@ -296,9 +381,9 @@ $zastave-height: 25px;
         height: 100%;
         object-fit: cover;
         // end of for grid
-        border-color: $CRNA;
-        border-style: solid;
-        border-width: 1px;
+//        border-color: $CRNA;
+//        border-style: solid;
+//        border-width: 1px;
 //        max-height: 240px;
         &:hover {
             opacity: 0.5;
@@ -339,9 +424,11 @@ $zastave-height: 25px;
         height: 100%;
         object-fit: cover;
         // end of for grid
-        border-color: $CRNA;
-        border-style: solid;
-        border-width: 1px;
+//        border-color: $CRNA;
+//        border-style: solid;
+//        border-width: 1px;
+        box-shadow: $VSENCA;
+
         &:hover {
             opacity: 0.5;
         }
@@ -360,32 +447,30 @@ $zastave-height: 25px;
     #gallery-popup-container {
         margin-bottom: 30px;                
     }
-}
-
-
-// for gallery and appartments
-.rsmm-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(5, 13vw);
-    grid-gap: 15px;        
-}
-
-.rsmm-grid-item {
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);    
-}
-
-@media screen and (max-width: $medium-screen) {
+    
     .rsmm-grid {
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(6, 21vw);
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(5, 13vw);
+        grid-gap: 24px;        
     }
-}
 
-@media screen and (max-width: $small-screen) {
-    .rsmm-grid {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(9, 30vw);
+    .rsmm-grid-item {
+//        box-shadow: $SENCA;
+    }
+
+    @media screen and (max-width: $medium-screen) {
+        .rsmm-grid {
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(6, 21vw);
+        }
+    }
+
+    @media screen and (max-width: $small-screen) {
+        .rsmm-grid {
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(9, 30vw);
+        }
     }
 }
 
