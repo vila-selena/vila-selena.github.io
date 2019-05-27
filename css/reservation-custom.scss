@@ -138,7 +138,8 @@ ul#lang_navlist
 {
     width: 100%;
     height: 1px;
-    background: #818386 url(197_content-delimiter.gif) no-repeat 50% 0;
+/*    background: #818386 url(197_content-delimiter.gif) no-repeat 50% 0;  */
+    background: #818386 url('https://www.fidelityhotel.net/styles/hotelsi/197_content-delimiter.gif') no-repeat 50% 0;
 }
 .divContent
 {
@@ -149,7 +150,8 @@ ul#lang_navlist
     width: 100%;
     height: 160px;
     background-color: #fff;
-    background-image: url(204_background-top-blue.gif);
+/*    background-image: url(204_background-top-blue.gif);  */
+    background-image: url('https://www.fidelityhotel.net/styles/hotelsi/204_background-top-blue.gif');
     background-position: center 20px;
     background-repeat: no-repeat;
 }
@@ -281,13 +283,15 @@ a
     -moz-border-radius-bottomright: 7px;
     -moz-border-radius-topleft: 7px;
     -moz-border-radius-topright: 7px;
-    background: #fff url(../../images/login_back.gif) repeat-x scroll 0 0;
+/*    background: #fff url(../../images/login_back.gif) repeat-x scroll 0 0;  */
+    background: #fff url('https://www.fidelityhotel.net/images/login_back.gif') repeat-x scroll 0 0;
     border: 1px solid #d3d3d3;
     padding: 5px;
 }
 .divGrayRect
 {
-    background: #fff url(../../images/login_back.gif) repeat-x scroll 0 0;
+/*    background: #fff url(../../images/login_back.gif) repeat-x scroll 0 0;  */
+    background: #fff url('https://www.fidelityhotel.net/images/login_back.gif') repeat-x scroll 0 0;
     border: 1px solid #d3d3d3;
     padding: 11px;
 }
@@ -436,7 +440,8 @@ a
 {
     display: inline-block;
     background-position: right bottom;
-    background-image: url(../../images/drop-shadow.png);
+/*    background-image: url(../../images/drop-shadow.png);  */
+    background-image: url('https://www.fidelityhotel.net/images/drop-shadow.png');
     background-repeat: no-repeat;
     padding: 0;
     margin: 10px 0 0 6px;
@@ -458,7 +463,8 @@ a
     zoom: 1; *display:inline}
 .xstooltip
 {
-    background: url(../../images/drop-shadow.png) no-repeat bottom right !important;
+/*    background: url(../../images/drop-shadow.png) no-repeat bottom right !important;  */
+    background: url('https://www.fidelityhotel.net/images/drop-shadow.png') no-repeat bottom right !important;
     margin: 10px 0 0 10px !important;
     visibility: hidden;
     position: absolute;
@@ -1492,3 +1498,92 @@ input, .input-group-addon, button, .panel, select{
 /* add padding  */
 .left-addon input  { padding-left:  30px; }
 .right-addon input { padding-right: 30px; }
+
+
+/**********************/
+/* custom Vila Selena */
+
+
+/* hide logo */
+#aspnetForm > div.container > div.divHeader > div > div.panel-heading > div.col-4.pull-right {
+    display: none;    
+}
+
+/* hide top picture & description */
+#aspnetForm > div.container > div.divHeader > div > div.panel-body {
+    display: none;
+}
+
+/* hide button close */
+#ctl00_FootContentPlaceHolder_btnAbort {
+    display: none;
+}
+
+/* button search */
+#ctl00_MainContentPlaceHolder_btnCheckAvail {
+  margin-top: 10px;
+  padding: 6px 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  line-height: 20px;;
+  border: 1px solid #A28142;
+  background-color: #A28142;
+  color: white;
+}
+#ctl00_MainContentPlaceHolder_btnCheckAvail:hover {
+  background-color: #961F1B;
+}
+
+/* button select */
+#ctl00_MainContentPlaceHolder_repeaterRoomsAvailImages_ctl03_btnBook {
+  margin-top: 10px;
+  padding: 6px 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  line-height: 20px;;
+  border: 1px solid #A28142;
+  background-color: #A28142;
+  color: white;
+}
+#ctl00_MainContentPlaceHolder_repeaterRoomsAvailImages_ctl03_btnBook:hover {
+  background-color: #961F1B;
+}
+
+/* button book selected */
+#ctl00_MainContentPlaceHolder_btnContinue {
+  margin-top: 10px;
+  padding: 6px 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  line-height: 20px;;
+  border: 1px solid #A28142;
+  background-color: #A28142;
+  color: white;
+}
+#ctl00_MainContentPlaceHolder_btnContinue:hover {
+  background-color: #961F1B;
+}
+
+/* link back */
+#ctl00_FootContentPlaceHolder_btnBack {
+  margin-top: 10px;
+  padding: 6px 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  line-height: 20px;;
+  border: 1px solid #A28142;
+  background-color: #A28142;
+  color: white;
+}
+#ctl00_FootContentPlaceHolder_btnBack:hover {
+  background-color: #961F1B;
+}
+
