@@ -2,26 +2,9 @@
 ---
 
 // load fonts 
-@font-face {
-    font-family: 'Raleway';
-    src: url('/fonts/raleway-regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Allura';
-    src: url('/fonts/allura-regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'ArsenalBold';
-    src: url('/fonts/arsenal-bold.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-}
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,400i,700,700i&display=swap&subset=latin-ext'); // besedilo
+@import url('https://fonts.googleapis.com/css?family=Allura:400,400i,700,700i&display=swap&subset=latin-ext'); // umetniski headerji
+@import url('https://fonts.googleapis.com/css?family=Arsenal:400,400i,700,700i&display=swap&subset=latin-ext'); // meniji, naslovi
 
 
 // barve
@@ -35,7 +18,7 @@ $RUMENA:    #F7D895;
 $VSENCA: 0px 0px 6px 0px rgba(0,0,0,0.6), 0px 0px 12px 0px rgba(0,0,0,0.3);
 $MSENCA: 0px 0px 4px 0px rgba(0,0,0,0.6), 0px 0px 8px 0px rgba(0,0,0,0.3);
 // senca za text-shadow: h-offset v-offset blur color
-$TSENCA: 0px 3px 3px rgba(0,0,0,0.4);
+$TSENCA: 0px 3px 2px rgba(0,0,0,0.4);
 
 // navigation
 $top-height:        90px;
@@ -130,7 +113,7 @@ body {
     padding-top: 45px; //$top-height;
 
     color: $ZELENA;
-    font-family: ArsenalBold;
+    font-family: Arsenal;
     font-size: 18px;
     font-weight: bold;
     text-transform: uppercase;
@@ -246,7 +229,7 @@ $zastave-height: 25px;
         background: rgba($BELA, 0.6);
         color: $RDECA;
 
-        font-family: ArsenalBold;
+        font-family: Arsenal;
         font-size: 18px;
         font-weight: bold;
         text-transform: uppercase;
@@ -271,7 +254,7 @@ $zastave-height: 25px;
 #rsmm-apartments-OLD {
     h4 {
         color: $RDECA;
-        font-family: ArsenalBold;
+        font-family: Arsenal;
         font-size: 18px;
         font-weight: bold;
     }
@@ -305,7 +288,7 @@ $zastave-height: 25px;
 #rsmm-apartments {
     h4 {
         color: $RDECA;
-        font-family: ArsenalBold;
+        font-family: Arsenal;
         font-size: 18px;
         font-weight: bold;
     }
@@ -333,7 +316,7 @@ $zastave-height: 25px;
         background: rgba($BELA, 0.6);
         color: $CRNA;
 
-        font-family: ArsenalBold;
+        font-family: Arsenal;
         font-size: 16px;
         font-weight: bold;
         text-transform: uppercase;
